@@ -1,0 +1,4 @@
+host : debian13
+kernel :  Linux 6.1.77-x64v3-xanmod1
+flatpak version : Flatpak 1.16.1
+drawio version : 29.03
