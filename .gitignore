@@ -2,4 +2,4 @@ token.txt
 
 
 #grafana
-./docker/monitoring/grafana/grafana-data/*
+docker/monitoring/grafana/grafana-data/*
