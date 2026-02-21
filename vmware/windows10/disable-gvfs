@@ -1,0 +1,3 @@
+systemctl --user stop gvfs-mtp-volume-monitor.service
+systemctl --user mask gvfs-mtp-volume-monitor.service
+killall gvfsd-mtp
