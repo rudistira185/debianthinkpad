@@ -1,1 +1,5 @@
 token.txt
+
+
+#grafana
+./docker/monitoring/grafana/grafana-data/*
