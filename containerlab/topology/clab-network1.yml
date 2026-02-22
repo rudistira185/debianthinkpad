@@ -1,0 +1,19 @@
+name: clab-network1
+
+topology:
+  nodes:
+    r1:
+      kind: linux  # Ubah dari mikrotik_ros ke linux
+      image: blaaackbear/vr-routeros:7.18.2
+      # Tambahkan ini agar interface network di dalam container tetap dipetakan dengan benar
+      env:
+        CONNECTION_MODE: tc 
+    
+    r2:
+      kind: linux  # Ubah dari mikrotik_ros ke linux
+      image: blaaackbear/vr-routeros:7.18.2
+      env:
+        CONNECTION_MODE: tc
+
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
