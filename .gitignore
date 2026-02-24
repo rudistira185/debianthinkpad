@@ -5,4 +5,4 @@ token.txt
 docker/monitoring/grafana/grafana-data/*
 
 #lxc container ubuntujammy
-debianthinkpad/lxc/container/ubuntujammy/ubuntujammy
+lxc/container/ubuntujammy/ubuntujammy

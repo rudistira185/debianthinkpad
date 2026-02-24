@@ -1,0 +1,1 @@
+sudo lxc-destroy -n ubuntujammy -P $PWD 

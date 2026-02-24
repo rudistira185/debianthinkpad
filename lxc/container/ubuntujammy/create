@@ -1,0 +1,4 @@
+#!/bin/bash
+# Buat container Ubuntu Jammy minimal di folder current
+sudo lxc-create -n ubuntujammy -t download -P "$PWD" -- \
+    --dist ubuntu --release jammy --arch amd64 --variant default
