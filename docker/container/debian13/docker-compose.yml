@@ -1,0 +1,12 @@
+services:
+
+
+ #debian13 
+  debian13:
+    build: .
+    container_name: debian13
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./mount:/home/carlos
+    command: sleep infinity

@@ -1,0 +1,9 @@
+FROM debian:trixie
+
+RUN apt update && \
+    apt install -y sudo && \
+    useradd -m -s /bin/bash carlos && \
+    echo "carlos ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER carlos
+WORKDIR /home/carlos
