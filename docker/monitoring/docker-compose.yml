@@ -1,6 +1,6 @@
 services:
 
-   # Kontainer pembantu untuk memperbaiki permission
+   # fix permission ./grafana
   init-grafana:
     image: alpine:latest
     container_name: init-grafana
@@ -8,14 +8,14 @@ services:
     volumes:
       - ./grafana:/var/lib/grafana-fix
     command: chown -R 472:472 /var/lib/grafana-fix
-    
+
   # 1. SNMP Exporter: Jembatan SNMP ke Prometheus
   snmp-exporter:
     image: prom/snmp-exporter:latest
     container_name: snmp-exporter
     restart: always
     ports:
-      - "9116:9116"  # <--- INI YANG HILANG
+      - "9116:9116"
     volumes:
       - ./snmp/snmp.yml:/etc/snmp_exporter/snmp.yml
 
