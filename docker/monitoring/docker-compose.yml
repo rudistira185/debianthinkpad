@@ -10,16 +10,28 @@ services:
     command: chown -R 472:472 /var/lib/grafana-fix
 
   # 1. SNMP Exporter: Jembatan SNMP ke Prometheus
-  snmp-exporter:
-    image: prom/snmp-exporter:latest
-    container_name: snmp-exporter
-    restart: always
-    ports:
-      - "9116:9116"
-    volumes:
-      - ./snmp/snmp.yml:/etc/snmp_exporter/snmp.yml
+#  snmp-exporter:
+#    image: prom/snmp-exporter:latest
+#    container_name: snmp-exporter
+#    restart: always
+#    ports:
+#      - "9116:9116"
+#    volumes:
+#      - ./snmp/snmp.yml:/etc/snmp_exporter/snmp.yml
 
-  # 2. Prometheus: Database Time-Series
+  mktxp:
+    image: ghcr.io/akpw/mktxp:latest
+    container_name: mktxp
+    restart: unless-stopped
+    ports:
+      - "49090:49090"
+    volumes:
+      - ./mktxp:/etc/mktxp
+    command: mktxp --cfg-dir /etc/mktxp export
+    environment:
+      - TZ=Asia/Jakarta
+
+# 2. Prometheus: Database Time-Series
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -28,8 +40,8 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
-    depends_on:
-      - snmp-exporter
+#    depends_on:
+#      - snmp-exporter
 
   # 3. Grafana: Dashboard Visualisasi
   grafana:
