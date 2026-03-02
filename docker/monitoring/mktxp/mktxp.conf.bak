@@ -1,0 +1,71 @@
+[local-isp]
+    hostname = 10.10.10.10
+    username = local-isp
+    password = local-isp
+    port = 8728
+    enabled_sections = system_resource, interface, route, dhcp, wireless
+[default]
+
+# The section below contains the latest default parameters introduced by MKTXP
+# For organizational purposes, you can move these parameters to the [default] section
+[new_default_parameters]
+    ipv6_neighbor = False
+    ssl_check_hostname = True
+    dhcp_lease = True
+    ipsec = False
+    ipv6_firewall = False
+    capsman_clients = True
+    module_only = False
+    user = True
+    container = False
+    check_for_updates = False
+    dns = False
+    route = True
+    switch_port = False
+    installed_packages = True
+    lte = False
+    certificate = False
+    wireless = True
+    ipv6_pool = False
+    capsman = True
+    plaintext_login = True
+    no_ssl_certificate = False
+    ipv6_route = False
+    pool = True
+    firewall = True
+    routing_stats = False
+    neighbor = True
+    bgp = False
+    monitor = True
+    gre = False
+    public_ip = True
+    ipip = False
+    kid_control_dynamic = False
+    queue = True
+    wireless_clients = True
+    connection_stats = False
+    enabled = False
+    bfd = False
+    poe = True
+    dhcp = True
+    netwatch = True
+    eoip = False
+    w60g = False
+    use_ssl = False
+    connections = True
+    interface = True
+    kid_control_assigned = False
+    health = True
+    ssl_certificate_verify = False
+    hostname = localhost
+    username = user
+    password = password
+    credentials_file = ""
+    ssl_ca_file = ""
+    remote_dhcp_entry = None
+    remote_capsman_entry = None
+    address_list = None
+    ipv6_address_list = None
+    custom_labels = None
+    interface_name_format = name
+    port = 8728
