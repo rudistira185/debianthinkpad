@@ -1,0 +1,17 @@
+
+copy on folder /etc/default/zramswap
+
+# Compression algorithm
+ALGO=zstd
+
+# Use 75% of total RAM for zram
+PERCENT=75
+
+# Disable static size (ignored when PERCENT is set)
+SIZE=0
+
+# High priority so zram is used before disk swap
+PRIORITY=100
+
+
+
