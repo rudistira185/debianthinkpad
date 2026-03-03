@@ -6,4 +6,5 @@ docker/monitoring/grafana/grafana-data/*
 
 #lxc container ubuntujammy
 lxc/container/ubuntujammy/ubuntujammy
-lxc/container/ubuntujammy/mount/*
+lxc/container/ubuntujammy/mount
+

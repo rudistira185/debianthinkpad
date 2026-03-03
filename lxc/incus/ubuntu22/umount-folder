@@ -1,0 +1,11 @@
+# check device
+sudo incus config show ubuntu22
+
+echo ""
+echo ""
+echo ""
+
+echo "For umount, use command"
+echo ""
+echo ""
+echo "sudo incus config device remove ubuntu22 hostdata"

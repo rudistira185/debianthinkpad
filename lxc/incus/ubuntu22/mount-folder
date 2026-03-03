@@ -1,0 +1,4 @@
+# config shared folder
+sudo incus config device add ubuntu22 hostdata disk \
+  source=/home/selene/debianthinkpad/lxc/incus/ubuntu22/mount \
+  path=/home/ubuntu22

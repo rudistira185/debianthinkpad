@@ -1,0 +1,26 @@
+# incus-compose.yaml
+containers:
+  mycontainer:
+    image: images:ubuntu/jammy
+    profiles: []
+    config:
+      security.nesting: "true"
+      security.privileged: "true"   # agar bisa akses USB/PCI
+    devices:
+      # USB passthrough
+      my-usb:
+        type: usb
+        vendorid: "1234"
+        productid: "abcd"
+      
+      # PCI passthrough
+      my-pci:
+        type: pci
+        pci: "0000:03:00.0"
+      
+      # Mount folder host
+      shared-folder:
+        type: disk
+        source: /home/selene/shared
+        path: /mnt/shared
+        readonly: false

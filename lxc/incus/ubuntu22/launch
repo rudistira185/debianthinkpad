@@ -1,0 +1,3 @@
+# create container
+sudo incus launch images:ubuntu/22.04 ubuntu22
+

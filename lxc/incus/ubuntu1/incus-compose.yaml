@@ -1,0 +1,14 @@
+# incus-compose.yaml
+containers:
+  ubuntu1:
+    image: images:ubuntu/jammy
+    profiles: []
+    config:
+      security.nesting: "true"
+    devices:
+      # Mount folder host
+      shared-folder:
+        type: disk
+        source: /home/selene/debianthinkpad/lxc/incus/ubuntu1
+        path: /home/ubuntu1
+        readonly: false
