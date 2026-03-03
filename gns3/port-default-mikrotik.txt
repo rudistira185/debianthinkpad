@@ -1,0 +1,9 @@
+#mikrotik v7+
+
+services      |     port
+
+- dns req        - udp 53
+- ldp mpls       - tcp 646, udp 646
+- ospf           - 89
+- snmp           - udp 161,162
+
