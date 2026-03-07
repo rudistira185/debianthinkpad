@@ -1,0 +1,4 @@
+# mencari file didalam folder
+
+  #example
+  find GNS3/projects/ -iname "*GRE*"    #pakai wilcard agar semua file ketemu
