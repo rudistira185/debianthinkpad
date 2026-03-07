@@ -1,0 +1,3 @@
+# restore folder dari staged area
+  git --restore staged .
+  git --restore staged folder/to/folder
