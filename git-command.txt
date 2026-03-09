@@ -1,3 +1,18 @@
 # restore folder dari staged area
   git --restore staged .
   git --restore staged folder/to/folder
+
+
+# mengembalikan file yang di hapus dari git
+
+  #contoh
+  git restore "CV/RUDISTIRA CV ATS.pdf"
+  #command
+  git restore "folder/to/file"
+
+
+# hapus file git
+  #contoh
+  git rm "CV/RUDISTIRA CV ATS.pdf"
+  #command
+  git rm folder/to/file
