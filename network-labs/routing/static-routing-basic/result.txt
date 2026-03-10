@@ -1,0 +1,18 @@
+# Hasil pengetesan antar PC
+
+#PIng Test
+
+PC1 -> ping 192.168.20.20
+       PING 192.168.20.20 (192.168.20.20) 56(84) bytes of data.
+       64 bytes from 192.168.20.20: icmp_seq=1 ttl=62 time=0.836 ms
+       64 bytes from 192.168.20.20: icmp_seq=2 ttl=62 time=1.33 ms
+       64 bytes from 192.168.20.20: icmp_seq=3 ttl=62 time=1.17 ms
+       64 bytes from 192.168.20.20: icmp_seq=4 ttl=62 time=1.14 ms
+
+
+PC2 -> ping 192.168.10.10
+       PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+       64 bytes from 192.168.10.10: icmp_seq=1 ttl=62 time=0.820 ms
+       64 bytes from 192.168.10.10: icmp_seq=2 ttl=62 time=1.37 ms
+       64 bytes from 192.168.10.10: icmp_seq=3 ttl=62 time=1.23 ms
+       64 bytes from 192.168.10.10: icmp_seq=4 ttl=62 time=1.27 ms

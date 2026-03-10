@@ -1,0 +1,9 @@
+#Router2
+
+#Add IP Address
+ ip/address/add address=192.168.20.1/24 interface=ether1 comment="LAN2"
+ ip/address/add address=10.0.0.2/30 interface=ether2 comment="p2p to Router1"
+
+#Add static Routing
+ ip/route/add dst-address=192.168.10.0/24 gateway=10.0.0.1 comment="static routing LAN2 to LAN1"
+
