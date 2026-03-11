@@ -1,0 +1,55 @@
+# hasil ping antar client
+
+#Router1
+
+PC1 -> PC2 :  ping 192.168.20.20
+              PING 192.168.20.20 (192.168.20.20) 56(84) bytes of data.
+              64 bytes from 192.168.20.20: icmp_seq=1 ttl=62 time=0.924 ms
+              64 bytes from 192.168.20.20: icmp_seq=2 ttl=62 time=1.11 ms
+              64 bytes from 192.168.20.20: icmp_seq=3 ttl=62 time=1.12 ms
+              64 bytes from 192.168.20.20: icmp_seq=4 ttl=62 time=1.06 ms
+              64 bytes from 192.168.20.20: icmp_seq=5 ttl=62 time=1.11 ms
+
+
+PC1 -> PC3 :  ping 192.168.30.30
+              PING 192.168.30.30 (192.168.30.30) 56(84) bytes of data.
+              64 bytes from 192.168.30.30: icmp_seq=1 ttl=61 time=1.38 ms
+              64 bytes from 192.168.30.30: icmp_seq=2 ttl=61 time=1.60 ms
+              64 bytes from 192.168.30.30: icmp_seq=3 ttl=61 time=1.40 ms
+              64 bytes from 192.168.30.30: icmp_seq=4 ttl=61 time=1.70 ms
+              64 bytes from 192.168.30.30: icmp_seq=5 ttl=61 time=1.41 ms
+
+
+
+#Router2
+
+PC2 -> PC1 : ping 192.168.10.10
+             PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+             64 bytes from 192.168.10.10: icmp_seq=1 ttl=62 time=1.13 ms
+             64 bytes from 192.168.10.10: icmp_seq=2 ttl=62 time=1.10 ms
+             64 bytes from 192.168.10.10: icmp_seq=3 ttl=62 time=1.17 ms
+             64 bytes from 192.168.10.10: icmp_seq=4 ttl=62 time=1.06 ms
+
+
+P2 -> PC3  : ping 192.168.30.30 
+             PING 192.168.30.30 (192.168.30.30) 56(84) bytes of data.
+             64 bytes from 192.168.30.30: icmp_seq=1 ttl=62 time=0.883 ms
+             64 bytes from 192.168.30.30: icmp_seq=2 ttl=62 time=1.22 ms
+             64 bytes from 192.168.30.30: icmp_seq=3 ttl=62 time=1.13 ms
+             64 bytes from 192.168.30.30: icmp_seq=4 ttl=62 time=1.07 ms
+
+
+#Router3
+
+PC3 -> PC2 : ping 192.168.20.20
+             PING 192.168.20.20 (192.168.20.20) 56(84) bytes of data.
+             64 bytes from 192.168.20.20: icmp_seq=1 ttl=62 time=0.997 ms
+             64 bytes from 192.168.20.20: icmp_seq=2 ttl=62 time=1.26 ms
+             64 bytes from 192.168.20.20: icmp_seq=3 ttl=62 time=1.13 ms 
+
+
+PC3 -> PC1 : ping 192.168.10.10
+             PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+             64 bytes from 192.168.10.10: icmp_seq=1 ttl=61 time=1.37 ms
+             64 bytes from 192.168.10.10: icmp_seq=2 ttl=61 time=1.32 ms
+             64 bytes from 192.168.10.10: icmp_seq=3 ttl=61 time=1.45 ms
