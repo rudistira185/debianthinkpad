@@ -1,0 +1,27 @@
+# output routing table di kedua router ospf
+
+# Router1:
+
+            [Router1@Router1] > ip/route/pr
+            Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, o - OSPF
+            Columns: DST-ADDRESS, GATEWAY, DISTANCE
+                DST-ADDRESS      GATEWAY          DISTANCE
+            DAc 1.1.1.1/32       lo                      0
+            DAo 2.2.2.2/32       10.0.0.2%ether2       110
+            DAc 10.0.0.0/30      ether2                  0
+            DAc 10.10.10.0/24    ether8                  0
+            DAc 192.168.10.0/24  ether1                  0
+            DAo 192.168.20.0/24  10.0.0.2%ether2       110
+
+# Router2
+ 
+            [Router2@Router2] > ip/route/pr
+            Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, o - OSPF
+            Columns: DST-ADDRESS, GATEWAY, DISTANCE
+                DST-ADDRESS      GATEWAY          DISTANCE
+            DAo 1.1.1.1/32       10.0.0.1%ether2       110
+            DAc 2.2.2.2/32       lo                      0
+            DAc 10.0.0.0/30      ether2                  0
+            DAo 10.10.10.0/24    10.0.0.1%ether2       110
+            DAo 192.168.10.0/24  10.0.0.1%ether2       110
+            DAc 192.168.20.0/24  ether1                  0

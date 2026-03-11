@@ -1,0 +1,24 @@
+# hasil ping antar client ospf
+
+PC1 -> PC2  :  
+
+            root@PC1:~# ping 192.168.20.20
+            PING 192.168.20.20 (192.168.20.20) 56(84) bytes of data.
+            64 bytes from 192.168.20.20: icmp_seq=1 ttl=62 time=1.50 ms
+            64 bytes from 192.168.20.20: icmp_seq=2 ttl=62 time=1.11 ms
+            64 bytes from 192.168.20.20: icmp_seq=3 ttl=62 time=1.32 ms
+            64 bytes from 192.168.20.20: icmp_seq=4 ttl=62 time=1.67 ms
+
+
+PC2 -> PC1  :
+
+            root@PC2:~# ping 192.168.10.10
+            PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+            64 bytes from 192.168.10.10: icmp_seq=1 ttl=62 time=0.880 ms
+            64 bytes from 192.168.10.10: icmp_seq=2 ttl=62 time=1.12 ms
+            64 bytes from 192.168.10.10: icmp_seq=3 ttl=62 time=1.16 ms
+            64 bytes from 192.168.10.10: icmp_seq=4 ttl=62 time=1.12 ms
+            64 bytes from 192.168.10.10: icmp_seq=5 ttl=62 time=0.984 ms
+
+
+kesimpulan: "kedua client berhasil terkoneksi melalui ospf"
