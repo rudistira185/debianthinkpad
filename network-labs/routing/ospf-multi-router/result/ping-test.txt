@@ -1,0 +1,54 @@
+# hasil ping antar client LAN
+
+#LAN-A
+PC1 -> PC2  :
+             ping 192.168.20.20
+            PING 192.168.20.20 (192.168.20.20) 56(84) bytes of data.
+            64 bytes from 192.168.20.20: icmp_seq=1 ttl=62 time=5.97 ms
+            64 bytes from 192.168.20.20: icmp_seq=2 ttl=62 time=5.80 ms
+            64 bytes from 192.168.20.20: icmp_seq=3 ttl=62 time=5.95 ms
+
+PC1 -> PC3  :
+             ping 192.168.30.30 
+            PING 192.168.30.30 (192.168.30.30) 56(84) bytes of data.
+            64 bytes from 192.168.30.30: icmp_seq=1 ttl=61 time=4.23 ms
+            64 bytes from 192.168.30.30: icmp_seq=2 ttl=61 time=3.23 ms
+            64 bytes from 192.168.30.30: icmp_seq=3 ttl=61 time=3.03 ms
+            64 bytes from 192.168.30.30: icmp_seq=4 ttl=61 time=4.35 ms
+
+
+#LAN-B 
+PC2 -> PC1 :
+            ping 192.168.10.10
+            PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+            64 bytes from 192.168.10.10: icmp_seq=1 ttl=62 time=5.47 ms
+            64 bytes from 192.168.10.10: icmp_seq=2 ttl=62 time=5.98 ms
+            64 bytes from 192.168.10.10: icmp_seq=3 ttl=62 time=5.70 ms
+
+PC2 -> PC3 : 
+            ping 192.168.30.30
+            PING 192.168.30.30 (192.168.30.30) 56(84) bytes of data.
+            64 bytes from 192.168.30.30: icmp_seq=1 ttl=62 time=6.01 ms
+            64 bytes from 192.168.30.30: icmp_seq=2 ttl=62 time=5.59 ms
+            64 bytes from 192.168.30.30: icmp_seq=3 ttl=62 time=6.11 ms
+            64 bytes from 192.168.30.30: icmp_seq=4 ttl=62 time=6.00 ms
+
+
+#LAN-C 
+PC3 -> PC2 :
+            ping 192.168.20.20
+            PING 192.168.20.20 (192.168.20.20) 56(84) bytes of data.
+            64 bytes from 192.168.20.20: icmp_seq=1 ttl=62 time=5.68 ms
+            64 bytes from 192.168.20.20: icmp_seq=2 ttl=62 time=5.46 ms
+            64 bytes from 192.168.20.20: icmp_seq=3 ttl=62 time=5.57 ms
+
+PC3 -> PC1 :
+            ping 192.168.10.10
+            PING 192.168.10.10 (192.168.10.10) 56(84) bytes of data.
+            64 bytes from 192.168.10.10: icmp_seq=1 ttl=61 time=8.24 ms
+            64 bytes from 192.168.10.10: icmp_seq=2 ttl=61 time=7.94 ms
+            64 bytes from 192.168.10.10: icmp_seq=3 ttl=61 time=7.71 ms
+
+
+# kesimpulan
+antar client berhasil terhubnung menggunakan OSPF
