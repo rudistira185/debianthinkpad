@@ -1,0 +1,73 @@
+# hasil routing tables OSPF 4 Router
+
+Router1:  
+        
+        [admin@Router1] > ip/route/pr
+        Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, o - OSPF; + - ECMP
+        Columns: DST-ADDRESS, GATEWAY, DISTANCE
+            DST-ADDRESS    GATEWAY          DISTANCE
+        DAc  1.1.1.1/32     lo                      0
+        DAo  2.2.2.2/32     10.0.0.2%ether1       110
+        DAo  3.3.3.3/32     20.0.0.2%ether2       110
+        DAo+ 4.4.4.4/32     10.0.0.2%ether1       110
+        DAo+ 4.4.4.4/32     20.0.0.2%ether2       110
+        DAc  10.0.0.0/30    ether1                  0
+        DAc  10.10.10.0/24  ether8                  0
+        DAc  20.0.0.0/30    ether2                  0
+        DAo  30.0.0.0/30    10.0.0.2%ether1       110
+        DAo  40.0.0.0/30    20.0.0.2%ether2       110
+
+
+Router2:
+
+       [admin@Router2] > ip/route/pr      
+        Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, o - OSPF
+        Columns: DST-ADDRESS, GATEWAY, DISTANCE
+            DST-ADDRESS    GATEWAY          DISTANCE
+        DAo 1.1.1.1/32     10.0.0.1%ether1       110
+        DAc 2.2.2.2/32     lo                      0
+        DAo 3.3.3.3/32     10.0.0.1%ether1       110
+        DAo 4.4.4.4/32     30.0.0.2%ether2       110
+        DAc 10.0.0.0/30    ether1                  0
+        DAo 10.10.10.0/24  10.0.0.1%ether1       110
+        DAo 20.0.0.0/30    10.0.0.1%ether1       110
+        DAc 30.0.0.0/30    ether2                  0
+
+
+Router3 :
+
+        [admin@Router3] > ip/route/pr
+        Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, o - OSPF
+        Columns: DST-ADDRESS, GATEWAY, DISTANCE
+            DST-ADDRESS    GATEWAY          DISTANCE
+        DAo 1.1.1.1/32     20.0.0.1%ether2       110
+        DAo 2.2.2.2/32     20.0.0.1%ether2       110
+        DAc 3.3.3.3/32     lo                      0
+        DAo 4.4.4.4/32     40.0.0.2%ether3       110
+        DAo 10.0.0.0/30    20.0.0.1%ether2       110
+        DAo 10.10.10.0/24  20.0.0.1%ether2       110
+        DAc 20.0.0.0/30    ether2                  0
+        DAo 30.0.0.0/30    20.0.0.1%ether2       110
+        DAc 40.0.0.0/30    ether3                  0
+
+
+Router4:
+
+        [admin@Router4] > ip/route/pr
+        Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, o - OSPF
+        Columns: DST-ADDRESS, GATEWAY, DISTANCE
+            DST-ADDRESS    GATEWAY          DISTANCE
+        DAo 1.1.1.1/32     40.0.0.1%ether3       110
+        DAo 2.2.2.2/32     40.0.0.1%ether3       110
+        DAo 3.3.3.3/32     40.0.0.1%ether3       110
+        DAc 4.4.4.4/32     lo                      0
+        DAo 10.0.0.0/30    40.0.0.1%ether3       110
+        DAo 10.10.10.0/24  40.0.0.1%ether3       110
+        DAo 20.0.0.0/30    40.0.0.1%ether3       110
+        DAc 30.0.0.0/30    ether2                  0
+        D o 30.0.0.0/30    40.0.0.1%ether3       110
+        DAc 40.0.0.0/30    ether3                  0
+
+
+# kesimpulan
+semua router berhasil terhubung dengan menggunakan OSPF

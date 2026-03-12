@@ -1,0 +1,28 @@
+# Hasil traceroute dari Router4 ke Router1
+network 40.0.0.0/30 cost=10 adalah jalur utama
+network 30.0.0.0/40 cost=20 adalaj jalur failover (backup)
+
+
+Router4 -> Router1 :
+
+ kondisi link utama ospf hidup :
+
+        [Router4@Router4] > tool/traceroute 1.1.1.1
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+        #  ADDRESS   LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+        1  40.0.0.1  0%       2  0.6ms  0.6  0.5   0.6    0.1    
+        2  1.1.1.1   0%       2  0.7ms  0.9  0.7   1      0.2   
+
+
+kondisi jika link ospf utama mati :
+
+       [Router4@Router4] > tool/traceroute 1.1.1.1
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+        #  ADDRESS   LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+        1  30.0.0.1  0%       3  0.6ms  0.5  0.5   0.6    0      
+        2  1.1.1.1   0%       3  0.6ms  0.8  0.6   1.1    0.2  
+
+
+# kesimpulan
+
+ Failover ospf berhasil, terbukti jalur berganti setelah link ospf utama mati
