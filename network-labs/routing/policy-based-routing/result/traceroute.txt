@@ -1,0 +1,38 @@
+# hasil traceroute dari 2 LAN
+
+
+#LAN1 (192.168.10.0/24) berhasil keluar melalui isp1
+
+client1-LAN-A: 
+
+                root@client1-LAN-A:~# traceroute 8.8.8.8
+                traceroute to 8.8.8.8 (8.8.8.8), 30 hops max, 60 byte packets
+                1  192.168.10.1 (192.168.10.1)  0.693 ms  0.744 ms  0.740 ms
+                2  10.10.10.1 (10.10.10.1)  1.637 ms  1.642 ms  1.658 ms
+                3  192.168.80.245 (192.168.80.245)  32.598 ms  32.648 ms  32.689 ms
+                4  * * *
+                5  8.8.8.8 (8.8.8.8)  86.228 ms  86.212 ms  82.293 ms
+
+
+
+#LAN2 (192.168.20.0/24) berhasil keluar melalui isp2
+
+client1-LAN-B:
+
+                root@client1-LAN-B:~# traceroute 8.8.8.8
+                traceroute to 8.8.8.8 (8.8.8.8), 30 hops max, 60 byte packets
+                1  192.168.20.1 (192.168.20.1)  0.690 ms  0.749 ms  0.770 ms
+                2  20.20.20.1 (20.20.20.1)  1.986 ms  2.193 ms  2.195 ms
+                3  192.168.80.245 (192.168.80.245)  35.218 ms  35.325 ms  35.323 ms
+                4  * * *
+                5  8.8.8.8 (8.8.8.8)  96.724 ms  106.947 ms  106.344 ms
+
+
+#kesimpulan : Policy based routing (PBR) dengan 2 isp telah berhasil
+
+
+
+info :
+
+      - isp1 (10.10.10.10/24) gw 10.10.10.1
+      - sip2 (20.20.20.20/24) gw 20.20.20.1
