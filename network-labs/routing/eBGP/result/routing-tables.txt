@@ -1,0 +1,52 @@
+# hasil routing table untuk 3 Router
+
+
+-> Router-jakarta:
+
+            [admin@Router-jakarta] > ip/route/pr
+            Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, b - BGP
+            Columns: DST-ADDRESS, GATEWAY, DISTANCE
+                DST-ADDRESS     GATEWAY      DISTANCE
+            DAc 1.1.1.1/32      lo                  0
+            DAb 2.2.2.2/32      172.10.10.2        20
+            DAb 3.3.3.3/32      172.20.20.2        20
+            DAc 10.10.10.0/24   ether1              0
+            DAc 172.10.10.0/30  ether2              0
+            D b 172.10.10.0/30  172.10.10.2        20
+            DAc 172.20.20.0/30  ether3              0
+            D b 172.20.20.0/30  172.20.20.2        20
+
+
+
+-> Router-bandung: 
+
+             [admin@Router-bandung] > ip/route/pr
+            Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, b - BGP
+            Columns: DST-ADDRESS, GATEWAY, DISTANCE
+                DST-ADDRESS     GATEWAY      DISTANCE
+            DAb 1.1.1.1/32      172.10.10.1        20
+            DAc 2.2.2.2/32      lo                  0
+            DAb 3.3.3.3/32      172.10.10.1        20
+            DAc 172.10.10.0/30  ether1              0
+            D b 172.10.10.0/30  172.10.10.1        20
+            DAb 172.20.20.0/30  172.10.10.1        20
+
+
+-> Router-surabaya:
+
+            [admin@Router-surabaya] > ip/route/pr
+            Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, b - BGP
+            Columns: DST-ADDRESS, GATEWAY, DISTANCE
+                DST-ADDRESS     GATEWAY      DISTANCE
+            DAb 1.1.1.1/32      172.20.20.1        20
+            DAb 2.2.2.2/32      172.20.20.1        20
+            DAc 3.3.3.3/32      lo                  0
+            DAb 172.10.10.0/30  172.20.20.1        20
+            DAc 172.20.20.0/30  ether1              0
+            D b 172.20.20.0/30  172.20.20.1        20
+
+
+
+# kesimpulan
+
+ semua router berhasil terkoneksi menggunakan eBGP

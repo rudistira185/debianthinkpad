@@ -1,0 +1,42 @@
+# hasil traceroute untuk 3 router
+
+
+jakarta -> bandung:
+
+     [admin@Router-jakarta] > tool/traceroute 2.2.2.2
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+        #  ADDRESS  LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+        1  2.2.2.2  0%       3  0.4ms  0.5  0.4   0.6    0.1
+
+jakarta -> surabaya:
+
+     [admin@Router-jakarta] > tool/traceroute 3.3.3.3
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+        #  ADDRESS  LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+        1  3.3.3.3  0%       2  0.7ms  0.6  0.4   0.7    0.2
+
+
+
+bandung -> surabaya: 
+
+      [admin@Router-bandung] > tool/traceroute 3.3.3.3
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+        #  ADDRESS      LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+        1  172.10.10.1  0%       2  0.5ms  0.5  0.4   0.5    0.1
+        2  3.3.3.3      0%       2  0.7ms  0.7  0.6   0.7    0.1
+
+
+surabaya ->  bandung:
+
+      [admin@Router-surabaya] > tool/traceroute 2.2.2.2
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+        #  ADDRESS      LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+        1  172.20.20.1  0%       2  0.7ms  0.6  0.4   0.7    0.2
+        2  2.2.2.2      0%       2  0.8ms  0.9  0.8   0.9    0.1
+
+
+
+
+# kesimpulan
+
+ semua router berhasil terhubung menggunakan eBGP
