@@ -1,0 +1,13 @@
+==================== BGP ASN RANGE TABLE ====================
+
+Kategori            | Range ASN               | Tipe     | Keterangan
+--------------------|-------------------------|----------|-------------------------------------------
+Public ASN (16-bit) | 1 - 64511               | Global   | Digunakan di internet publik (RIR/APNIC)
+Private ASN (16-bit)| 64512 - 65534           | Private  | Untuk lab/internal, tidak boleh ke internet
+Reserved            | 0, 65535                | Khusus   | Tidak digunakan (reserved)
+
+Public ASN (32-bit) | 65536 - 4199999999      | Global   | ASN modern (4-byte ASN)
+Private ASN (32-bit)| 4200000000 - 4294967294 | Private  | Private ASN 32-bit
+Reserved            | 4294967295              | Khusus   | Reserved (tidak digunakan)
+
+==============================================================
