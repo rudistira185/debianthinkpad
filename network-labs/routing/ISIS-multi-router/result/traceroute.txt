@@ -1,0 +1,27 @@
+# hasil traceroute antar router
+
+
+Router1 -> Router3:
+
+           [admin@Router1] > tool/traceroute 3.3.3.3
+            Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+            #  ADDRESS      LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+            1  172.10.10.2  0%       3  0.6ms  0.7  0.6   0.9    0.1
+            2  3.3.3.3      0%       3  0.9ms  0.8  0.7   0.9    0.1
+
+
+
+Router3 -> Router1:
+
+            [admin@Router3] > tool/traceroute 1.1.1.1
+            Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+            #  ADDRESS      LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+            1  172.20.20.1  0%       2  0.4ms  0.5  0.4   0.5    0.1
+            2  1.1.1.1      0%       2  0.6ms  0.7  0.6   0.7    0.1
+
+
+
+
+#kesimpulan
+
+semua Router berhasil saling terkoneksi menggunakan routing IS-IS L1

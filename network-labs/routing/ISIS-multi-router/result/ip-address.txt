@@ -1,0 +1,35 @@
+#ip address untuk semua router
+
+
+Router1:  
+
+       [admin@Router1] > ip/address/pr
+        Columns: ADDRESS, NETWORK, INTERFACE
+        # ADDRESS         NETWORK      INTERFACE
+        ;;; to virbr1
+        0 10.10.10.10/24  10.10.10.0   ether1
+        1 1.1.1.1/32      1.1.1.1      lo
+        ;;; == p2p to Router2
+        2 172.10.10.1/30  172.10.10.0  ether
+
+
+Router2:
+
+      [admin@Router2] > ip/address/pr
+        Columns: ADDRESS, NETWORK, INTERFACE
+        # ADDRESS         NETWORK      INTERFACE
+        0 2.2.2.2/32      2.2.2.2      lo
+        ;;; == p2p to Router1
+        1 172.10.10.2/30  172.10.10.0  ether1
+        ;;; == p2p to Router3
+        2 172.20.20.1/30  172.20.20.0  ether2
+
+
+Router3:
+
+      [admin@Router3] > ip/address/pr
+        Columns: ADDRESS, NETWORK, INTERFACE
+        # ADDRESS         NETWORK      INTERFACE
+        0 3.3.3.3/32      3.3.3.3      lo
+        ;;; == p2p to Router2
+        1 172.20.20.2/30  172.20.20.0  ether1
