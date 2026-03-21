@@ -1,0 +1,33 @@
+# hasil sniffing packet untuk pembuktian bahwa MPLS berjalan (terdapat label mpls-unicast)
+
+
+
+from Router-LER-L to Router-LER-R:
+
+   Router-LER-R:
+      
+         [admin@Router-LER-R] > tool/sniffer/quick interface=ether1 mac-protocol=mpls-unicast
+        Columns: INTERFACE, TIME, NUM, DIR, SRC-MAC, DST-MAC, PROTOCOL, SIZE, CPU
+        INTERFACE  TIME   NUM  DIR  SRC-MAC            DST-MAC            PROTOCOL      SIZE  CPU
+        ether1     0.818    1  <-   0C:BF:5A:83:00:02  0C:04:0E:99:00:00  mpls-unicast    74    0
+        ether1     0.818    2  ->   0C:04:0E:99:00:00  0C:BF:5A:83:00:02  mpls-unicast    74    0
+        ether1     1.82     3  <-   0C:BF:5A:83:00:02  0C:04:0E:99:00:00  mpls-unicast    74    0
+        ether1     1.82     4  ->   0C:04:0E:99:00:00  0C:BF:5A:83:00:02  mpls-unicast    74    0
+        ether1     2.822    5  <-   0C:BF:5A:83:00:02  0C:04:0E:99:00:00  mpls-unicast    74    0
+        ether1     2.822    6  ->   0C:04:0E:99:00:00  0C:BF:5A:83:00:02  mpls-unicast    74    0
+        ether1     3.825    7  <-   0C:BF:5A:83:00:02  0C:04:0E:99:00:00  mpls-unicast    74    0
+        ether1     3.825    8  ->   0C:04:0E:99:00:00  0C:BF:5A:83:00:02  mpls-unicast    74    0
+        ether1     4.829    9  <-   0C:BF:5A:83:00:02  0C:04:0E:99:00:00  mpls-unicast    74    0
+        ether1     4.829   10  ->   0C:04:0E:99:00:00  0C:BF:5A:83:00:02  mpls-unicast    74    0
+
+
+
+#kesimpulan
+- packet berhasil di kirim dari 1.1.1 (Router-LER-L ke Router-LER-R)
+- Router-LER-L push label, kemudian Router-LSR swap label, dan pop dilakukan oleh Router-LER-R
+- packet di Router-LER-R masih berlabel kartena explicit null diaktifkan
+
+
+#info
+- ospf digunakan untuk forward packet layer3
+- explicit null digunakan agar Router-LSR tidak melakukan PHP (penultimate hop popping)

@@ -1,0 +1,28 @@
+# hasil traceroute dari Router-LER-L ke Router-LER-R
+
+
+
+Router-LER-L -> Router-LER-R:
+
+      [admin@Router-LER-L] > tool/traceroute 3.3.3.3
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV, STATUS
+        #  ADDRESS      LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV  STATUS
+        1  172.10.10.1  0%       3  1.1ms  1.2  1.1   1.2    0        <MPLS:L=17,E=0>
+        2  172.20.20.2  0%       3  0.8ms  0.6  0.5   0.8    0.1      <MPLS:L=0,E=0>
+        3  3.3.3.3      0%       3  0.5ms  0.5  0.5   0.6    0
+
+
+Router-LER-R -> Router-LER-L:
+
+       [admin@Router-LER-R] > tool/traceroute 1.1.1.1
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV, STATUS
+        #  ADDRESS      LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV  STATUS
+        1  172.20.20.1  0%       2  1ms    0.9  0.8   1      0.1      <MPLS:L=16,E=0>
+        2  172.10.10.2  0%       2  0.6ms  0.6  0.5   0.6    0.1      <MPLS:L=0,E=0>
+        3  1.1.1.1      0%       2  0.5ms  0.5  0.5   0.5    0
+
+
+
+#info
+- ospf digunakan untuk forward packet layer3
+- explicit null digunakan agar Router-LSR tidak melakukan PHP (penultimate hop popping)

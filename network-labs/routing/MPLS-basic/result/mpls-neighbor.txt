@@ -1,0 +1,47 @@
+# hasil neighborn untuk 3 router mpls
+
+
+Router-LSR ->
+ 
+           [admin@Router-LSR] > mpls/ldp/neighbor/pr
+            Flags: D - DYNAMIC; O - OPERATIONAL; p - PASSIVE
+            Columns: TRANSPORT, LOCAL-TRANSPORT, PEER, ADDRESSES
+            #     TRANSPORT  LOCAL-TRANSPORT  PEER       ADDRESSES
+            0 DO  1.1.1.1    2.2.2.2          1.1.1.1:0  1.1.1.1
+                                                        172.10.10.2
+            1 DOp 3.3.3.3    2.2.2.2          3.3.3.3:0  3.3.3.3
+                                                        172.20.20.2
+
+
+
+Router-LER-L :
+
+           [admin@Router-LER-L] > mpls/ldp/neighbor/pr
+            Flags: D - DYNAMIC; O - OPERATIONAL; p - PASSIVE
+            Columns: TRANSPORT, LOCAL-TRANSPORT, PEER, ADDRESSES
+            #     TRANSPORT  LOCAL-TRANSPORT  PEER       ADDRESSES
+            0 DOp 2.2.2.2    1.1.1.1          2.2.2.2:0  2.2.2.2
+                                                        10.10.10.10
+                                                        172.10.10.1
+                                                        172.20.20.1
+
+
+
+Router-LER-R:
+
+        [admin@Router-LER-R] > mpls/ldp/neighbor/pr
+            Flags: D - DYNAMIC; O - OPERATIONAL
+            Columns: TRANSPORT, LOCAL-TRANSPORT, PEER, ADDRESSES
+            #    TRANSPORT  LOCAL-TRANSPORT  PEER       ADDRESSES
+            0 DO 2.2.2.2    3.3.3.3          2.2.2.2:0  2.2.2.2
+                                                        10.10.10.10
+                                                        172.10.10.1
+                                                        172.20.20.1
+
+
+#kesimpulan
+semua Router berhasil melakukan forward packet menggunakan mpls
+
+#info
+- ospf digunakan untuk forward packet layer3
+- explicit null digunakan agar Router-LSR tidak melakukan PHP (penultimate hop popping)
