@@ -1,0 +1,30 @@
+#hasil traceroute untuk 2 LAN ke 8.8.8.8
+
+LAN1:
+
+  root@client1-LAN1:~# traceroute 8.8.8.8
+    traceroute to 8.8.8.8 (8.8.8.8), 30 hops max, 60 byte packets
+    1  192.168.10.1 (192.168.10.1)  0.703 ms  0.691 ms  0.685 ms
+    2  10.10.10.1 (10.10.10.1)  1.630 ms  1.632 ms  1.627 ms
+    3  * * *
+    4  * * *
+    5  8.8.8.8 (8.8.8.8)  68.659 ms  68.635 ms  47.499 ms
+
+
+
+LAN2:
+
+   root@client1-LAN2:~# traceroute 8.8.8.8
+    traceroute to 8.8.8.8 (8.8.8.8), 30 hops max, 60 byte packets
+    1  192.168.20.1 (192.168.20.1)  0.594 ms  0.737 ms  0.732 ms
+    2  20.20.20.1 (20.20.20.1)  1.638 ms  1.722 ms  1.718 ms
+    3  * * *
+    4  * * *
+    5  8.8.8.8 (8.8.8.8)  37.345 ms  44.585 ms  44.059 ms
+
+
+
+    #kesimpulan
+    - LAN1 berhasil keluar ke internet melalui isp1
+    - LAN2 berhasil keluar ke internet melalui isp2
+    
