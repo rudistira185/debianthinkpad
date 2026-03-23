@@ -1,0 +1,27 @@
+# hasil ping dari client1-LAN (router1) -> client2-LAN (router2)
+  LAN ini satu subnet 192.168.10.0/24 tapi berbeda router
+
+ client1(router1): 192.168.10.10
+ client2(router2): 192.168.10.20
+
+client1(router1) -> client2(router2) :
+
+      root@client1-LAN:~# ping 192.168.10.20
+        PING 192.168.10.20 (192.168.10.20) 56(84) bytes of data.
+        64 bytes from 192.168.10.20: icmp_seq=1 ttl=64 time=0.877 ms
+        64 bytes from 192.168.10.20: icmp_seq=2 ttl=64 time=1.67 ms
+        64 bytes from 192.168.10.20: icmp_seq=3 ttl=64 time=1.31 ms
+        ^C
+        --- 192.168.10.20 ping statistics ---
+        3 packets transmitted, 3 received, 0% packet loss, time 2005ms
+        rtt min/avg/max/mdev = 0.877/1.284/1.666/0.322 ms
+        root@client1-LAN:~# traceroute 192.168.10.20
+        traceroute to 192.168.10.20 (192.168.10.20), 30 hops max, 60 byte packets
+        1  192.168.10.20 (192.168.10.20)  1.925 ms  1.868 ms  2.100 ms
+
+
+
+# kesimpulan
+
+kedua client berhasil terkoneksi menggunakan VXLAN, kedua LAN walaupun beda router
+terkoneksi seakan-akan menggunakan 1 switch (layer2)

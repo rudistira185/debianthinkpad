@@ -1,0 +1,62 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Page-1" id="OaFhL122MPG12eeDr5gs">
+    <mxGraphModel dx="1042" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="2339" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-1" value="VXLAN" style="text;html=1;whiteSpace=wrap;strokeColor=#2D7600;fillColor=#60a917;align=center;verticalAlign=middle;rounded=0;fontSize=18;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="268.5" y="150" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-2" value="created:23/03/2026" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="263.5" y="210" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-6" value="Router1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=middle;verticalAlign=middle;align=right;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;labelPosition=left;spacingRight=7;" vertex="1" parent="1">
+          <mxGeometry x="300" y="330" width="78" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="JggOfUAyT4GYlZ0NrgYP-7" target="JggOfUAyT4GYlZ0NrgYP-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-17" value="eth2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="JggOfUAyT4GYlZ0NrgYP-11">
+          <mxGeometry x="-0.6158" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-7" value="Router2" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=middle;verticalAlign=middle;align=left;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;labelPosition=right;spacingLeft=7;" vertex="1" parent="1">
+          <mxGeometry x="690" y="330" width="78" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-8" value="sw-LAN&lt;div&gt;network 192.168.10.0/24&lt;/div&gt;" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.switches.workgroup_switch;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="277" y="540" width="93" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="JggOfUAyT4GYlZ0NrgYP-6" target="JggOfUAyT4GYlZ0NrgYP-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-16" value="eth2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="JggOfUAyT4GYlZ0NrgYP-9">
+          <mxGeometry x="-0.68" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-10" value="sw-LAN&lt;div&gt;network 192.168.10.0/24&lt;/div&gt;" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.switches.workgroup_switch;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="690" y="540" width="93" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="JggOfUAyT4GYlZ0NrgYP-6" target="JggOfUAyT4GYlZ0NrgYP-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-13" value="network&lt;div&gt;172.10.10.0/30&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="JggOfUAyT4GYlZ0NrgYP-12">
+          <mxGeometry x="-0.1269" y="-1" relative="1" as="geometry">
+            <mxPoint x="16" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-14" value="eth1&lt;div&gt;.1&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="JggOfUAyT4GYlZ0NrgYP-12">
+          <mxGeometry x="-0.8321" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JggOfUAyT4GYlZ0NrgYP-15" value="eth2&lt;div&gt;.2&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="JggOfUAyT4GYlZ0NrgYP-12">
+          <mxGeometry x="0.7321" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
