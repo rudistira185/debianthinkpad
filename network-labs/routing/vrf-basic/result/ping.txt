@@ -1,0 +1,39 @@
+#  hasil ping dari vrf-a (LAN1)
+
+client1-LAN1 -> client2-LAN1:
+
+            root@client1-LAN1:~# ip addr show eth0
+            24: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 1000
+                link/ether 02:42:54:ea:29:00 brd ff:ff:ff:ff:ff:ff
+                inet 192.168.10.10/24 scope global eth0
+                valid_lft forever preferred_lft forever
+                inet6 fe80::42:54ff:feea:2900/64 scope link
+                valid_lft forever preferred_lft forever
+            root@client1-LAN1:~# ping 192.168.10.15
+            PING 192.168.10.15 (192.168.10.15) 56(84) bytes of data.
+            64 bytes from 192.168.10.15: icmp_seq=1 ttl=64 time=0.202 ms
+            64 bytes from 192.168.10.15: icmp_seq=2 ttl=64 time=0.410 ms
+            ^C
+            --- 192.168.10.15 ping statistics ---
+            2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+            rtt min/avg/max/mdev = 0.202/0.306/0.410/0.104 m
+
+info: antar client di vrf dapat ping atau terkoneksi
+
+
+# hasil ping dari vrf-a (LAN1) ke vrf-b (LAN2)
+
+
+  client1-LAN1 -> client1-LAN2:
+
+            root@client1-LAN1:~# ping 192.168.20.20
+                PING 192.168.20.20 (192.168.20.20) 56(84) bytes of data.
+                From 192.168.10.1 icmp_seq=1 Destination Net Unreachable
+                From 192.168.10.1 icmp_seq=2 Destination Net Unreachable
+                From 192.168.10.1 icmp_seq=3 Destination Net Unreachable
+                From 192.168.10.1 icmp_seq=4 Destination Net Unreachable
+                From 192.168.10.1 icmp_seq=5 Destination Net Unreachable
+
+
+info: LAN1 dan LAN2 gagal terkoneksi, itu menandakan VRF berhasil mengisolasi
+      antar jaringan LAN
