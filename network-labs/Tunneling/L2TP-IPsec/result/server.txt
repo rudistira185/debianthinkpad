@@ -1,0 +1,64 @@
+# server l2tp
+
+        [admin@L2TP-SERVER] > interface/l2tp-server/server/pr
+                        enabled: yes
+                        max-mtu: 1450
+                        max-mru: 1450
+                            mrru: disabled
+                authentication: pap,chap,mschap1,mschap2
+            keepalive-timeout: 30
+                    max-sessions: unlimited
+                default-profile: l2tp-profile-main
+                    use-ipsec: yes
+                    ipsec-secret: 123456
+                caller-id-type: ip-address
+            one-session-per-host: no
+                allow-fast-path: no
+            l2tpv3-circuit-id:
+            l2tpv3-cookie-length: 0
+            l2tpv3-digest-hash: md5
+        accept-pseudowire-type: all
+            accept-proto-version: all
+        [admin@L2TP-SERVER] > ppp/profile/pr
+        Flags: * - default
+        0 * name="default" bridge-learning=default use-ipv6=yes use-mpls=default use-compression=default use-encryption=default only-one=default change-tcp-mss=yes
+            use-upnp=default address-list="" on-up="" on-down=""
+
+        1   name="l2tp-profile-main" local-address=172.10.10.1 remote-address=pool-l2tp bridge-learning=default use-ipv6=yes use-mpls=default use-compression=default
+            use-encryption=default only-one=default change-tcp-mss=default use-upnp=default address-list="" on-up="" on-down=""
+
+        2 * name="default-encryption" bridge-learning=default use-ipv6=yes use-mpls=default use-compression=default use-encryption=yes only-one=default
+            change-tcp-mss=yes use-upnp=default address-list="" on-up="" on-down=""
+        [admin@L2TP-SERVER] > ppp/secret/pr
+        Columns: NAME, SERVICE, PASSWORD, PROFILE
+        # NAME     SERVICE  PASSWORD  PROFILE
+        0 client1  l2tp     client1   l2tp-profile-main
+        [admin@L2TP-SERVER] > ip/pool/pr
+        Columns: NAME, RANGES
+        #  NAME       RANGES
+        0  pool-l2tp  192.168.10.0/24
+        [admin@L2TP-SERVER] >
+
+
+
+
+# test dari server ke client1
+
+[admin@L2TP-SERVER] > ping 192.168.10.255
+  SEQ HOST                                     SIZE TTL TIME       STATUS
+    0 192.168.10.255                             56  64 659us
+    1 192.168.10.255                             56  64 497us
+    2 192.168.10.255                             56  64 677us
+    3 192.168.10.255                             56  64 809us
+    sent=4 received=4 packet-loss=0% min-rtt=497us avg-rtt=660us max-rtt=809us
+
+[admin@L2TP-SERVER] > ppp/active/pr
+Columns: NAME, SERVICE, CALLER-ID, ADDRESS, UPTIME, ENCODING
+# NAME     SERVICE  CALLER-ID    ADDRESS         UPTIME  ENCODING
+0 client1  l2tp     172.10.10.2  192.168.10.255  30m47s  cbc(aes) + hmac(sha1)
+
+
+
+# kesimpulan
+
+server l2tp dan client berhasil terhubung menggunakan L2TP

@@ -1,0 +1,27 @@
+# koneksi dari l2tp-client
+
+  [admin@L2TP-CLIENT] > interface/l2tp-client/pr
+    Flags: X - disabled; R - running
+    0  R name="l2tp-out1" max-mtu=1450 max-mru=1450 mrru=disabled
+        connect-to=172.10.10.1 user="client1" password="client1"
+        profile=default-encryption keepalive-timeout=60 use-peer-dns=no
+        use-ipsec=yes ipsec-secret="123456" allow-fast-path=no
+        add-default-route=no dial-on-demand=no allow=pap,chap,mschap1,mschap2
+        l2tp-proto-version=l2tpv2 l2tpv3-digest-hash=md5
+    [admin@L2TP-CLIENT] > ip/address/pr
+    Flags: D - DYNAMIC
+    Columns: ADDRESS, NETWORK, INTERFACE
+    #   ADDRESS            NETWORK         INTERFACE
+    0   172.10.10.2/29     172.10.10.0     ether1
+    1 D 192.168.10.255/32  10.112.112.168  l2tp-out1
+    [admin@L2TP-CLIENT] > ip/route/pr
+    Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT
+    Columns: DST-ADDRESS, GATEWAY, DISTANCE
+        DST-ADDRESS        GATEWAY    DISTANCE
+    DAc 10.112.112.168/32  l2tp-out1         0
+    DAc 172.10.10.0/29     ether1            0
+
+
+#kesimpulan
+
+l2tp-client berhasil terkoneksi ke l2tp-server melalui kabel ethernet pada ether2
