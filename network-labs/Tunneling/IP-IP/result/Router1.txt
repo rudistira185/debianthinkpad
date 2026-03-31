@@ -1,0 +1,75 @@
+# ip address
+  Router1:
+       [admin@Router1] > ip/address/pr
+        Columns: ADDRESS, NETWORK, INTERFACE
+        # ADDRESS         NETWORK      INTERFACE
+        ;;; ==to virbr1
+        0 10.10.10.10/24  10.10.10.0   ether1
+        ;;; == p2p to Router2
+        1 172.10.10.1/30  172.10.10.0  ether2
+        2 1.1.1.1/32      1.1.1.1      lo
+
+
+# interface 
+   Router1:
+      
+       [admin@Router1] > interface/ipip/pr
+        Flags: R - RUNNING
+        Columns: NAME, MTU, ACTUAL-MTU, LOCAL-ADDRESS, REMOTE-ADDRESS, KEEPALIVE, DSCP
+        #   NAME        MTU   ACTUAL-MTU  LOCAL-ADDRESS  REMOTE-ADDRESS  KEEPALIVE  DSCP
+        0 R ipip-to-r2  auto        1438  172.10.10.1    172.10.10.2     10s,10     inherit
+
+
+#Route
+  Router1:
+
+      [admin@Router1] > ip/route/pr
+        Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, s - STATIC
+        Columns: DST-ADDRESS, GATEWAY, DISTANCE
+        #     DST-ADDRESS     GATEWAY      DISTANCE
+        DAc 1.1.1.1/32      lo                  0
+        0  As 2.2.2.2/32      172.10.10.2         1
+        DAc 10.10.10.0/24   ether1              0
+        DAc 172.10.10.0/30  ether2              0
+
+
+#ping to 2.2.2.2 (Router2)
+  Router1:
+
+     [admin@Router1] > ping 2.2.2.2
+        SEQ HOST                                     SIZE TTL TIME       STATUS
+            0 2.2.2.2                                    56  64 680us
+            1 2.2.2.2                                    56  64 691us
+            2 2.2.2.2                                    56  64 753us
+            3 2.2.2.2                                    56  64 956us
+            4 2.2.2.2                                    56  64 966us
+            5 2.2.2.2                                    56  64 673us
+            6 2.2.2.2                                    56  64 869us
+            7 2.2.2.2                                    56  64 637us
+            8 2.2.2.2                                    56  64 860us
+            9 2.2.2.2                                    56  64 923us
+        10 2.2.2.2                                    56  64 695us
+        11 2.2.2.2                                    56  64 813us
+
+
+#sniffing from Router2
+ Router1:
+    [admin@Router1] > tool/sniffer/quick interface=ether2 ip-protocol=icmp
+        Columns: INTERFACE, TIME, NUM, DIR, SRC-MAC, DST-MAC, SRC-ADDRESS, DST-ADDRESS, PROTOCOL, SIZE, CPU
+        INTERFACE  TIME   NUM  DIR  SRC-MAC            DST-MAC            SRC-ADDRESS  DST-ADDRESS  PROTOCOL  SIZE  CPU
+        ether2     3.696    1  <-   0C:DA:DA:3C:00:00  0C:92:EF:27:00:01  172.10.10.2  1.1.1.1      ip:icmp     70    0
+        ether2     3.696    2  ->   0C:92:EF:27:00:01  0C:DA:DA:3C:00:00  1.1.1.1      172.10.10.2  ip:icmp     70    0
+        ether2     4.698    3  <-   0C:DA:DA:3C:00:00  0C:92:EF:27:00:01  172.10.10.2  1.1.1.1      ip:icmp     70    0
+        ether2     4.698    4  ->   0C:92:EF:27:00:01  0C:DA:DA:3C:00:00  1.1.1.1      172.10.10.2  ip:icmp     70    0
+        ether2     5.7      5  <-   0C:DA:DA:3C:00:00  0C:92:EF:27:00:01  172.10.10.2  1.1.1.1      ip:icmp     70    0
+        ether2     5.7      6  ->   0C:92:EF:27:00:01  0C:DA:DA:3C:00:00  1.1.1.1      172.10.10.2  ip:icmp     70    0
+        ether2     6.702    7  <-   0C:DA:DA:3C:00:00  0C:92:EF:27:00:01  172.10.10.2  1.1.1.1      ip:icmp     70    0
+        ether2     6.702    8  ->   0C:92:EF:27:00:01  0C:DA:DA:3C:00:00  1.1.1.1      172.10.10.2  ip:icmp     70    0
+        ether2     7.704    9  <-   0C:DA:DA:3C:00:00  0C:92:EF:27:00:01  172.10.10.2  1.1.1.1      ip:icmp     70    0
+        ether2     7.704   10  ->   0C:92:EF:27:00:01  0C:DA:DA:3C:00:00  1.1.1.1      172.10.10.2  ip:icmp     70    0
+        ether2     8.705   11  <-   0C:DA:DA:3C:00:00  0C:92:EF:27:00:01  172.10.10.2  1.1.1.1      ip:icmp     70    0
+
+
+
+#kesimpulan
+   Router1 dan Router2 berhasil terhubung menggnuakan IP-IP
