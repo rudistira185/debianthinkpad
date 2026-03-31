@@ -1,0 +1,32 @@
+# pppoe-discovery
+
+  selena:  (dsicovery pppoe)
+     
+        root@client-selena:~# pppoe-discovery
+        Access-Concentrator: PPPoE-SERVER
+            Service-Name: pppoe-server-rt10
+        AC-Ethernet-Address: 0c:a5:2d:a8:00:01
+        --------------------------------------------------
+
+
+
+   selena:  (ip address dari server)
+   
+       ppp0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1492 qdisc fq_codel state UNKNOWN group default qlen 3
+    link/ppp
+    inet 172.10.10.48 peer 172.10.10.1/32 scope global ppp0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::4807:32b4:47c1:984 peer fe80::4ab1:788c:f0:b/128 scope link
+       valid_lft forever preferred_lft forever
+
+
+  selena:   (ping ke 8.8.8.8)
+  
+      root@client-selena:~# ping 8.8.8.8
+        PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+        64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=69.3 ms
+        64 bytes from 8.8.8.8: icmp_seq=2 ttl=111 time=51.6 ms
+
+
+# kesimpulan
+client-selena berhasil terkoneksi ke PPPoE-SERVER, dan mendapatkan ip address dari pool server

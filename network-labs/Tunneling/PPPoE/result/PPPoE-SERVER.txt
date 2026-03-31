@@ -1,0 +1,73 @@
+# pppoe-profile
+
+  PPPoE-SERVER:      
+  
+        
+        [PPPoE-SERVER@PPPoE-SERVER] > ppp/profile/pr
+                Flags: * - default 
+                0 * name="default" bridge-learning=default use-ipv6=yes use-mpls=default use-compression=default use-encryption=default only-one=default 
+                    change-tcp-mss=yes use-upnp=default address-list="" on-up="" on-down="" 
+
+                1   name="pppoe-profile-rt10" local-address=172.10.10.1 remote-address=pool-RT10 bridge-learning=default use-ipv6=yes use-mpls=default 
+                    use-compression=default use-encryption=default only-one=default change-tcp-mss=default use-upnp=default address-list="" on-up="" on-down="" 
+
+                2   name="pppoe-profile-rt20" local-address=172.20.20.1 remote-address=pool-RT20 bridge-learning=default use-ipv6=yes use-mpls=default 
+                    use-compression=default use-encryption=default only-one=default change-tcp-mss=default use-upnp=default address-list="" on-up="" on-down="" 
+
+
+
+#pppoe-server
+
+ PPPoE-SERVER:
+
+         [PPPoE-SERVER@PPPoE-SERVER] > interface/pppoe-server/server/pr
+            Flags: X - disabled, I - invalid 
+            0   ;;; == to rt10
+                service-name="pppoe-server-rt10" interface=ether2 max-mtu=auto max-mru=auto mrru=disabled authentication=pap,chap,mschap1,mschap2 
+                keepalive-timeout=10 one-session-per-host=no max-sessions=unlimited pado-delay=0 default-profile=pppoe-profile-rt10 
+
+            1   ;;; == to rt20
+                service-name="pppoe-server-rt20" interface=ether3 max-mtu=auto max-mru=auto mrru=disabled authentication=pap,chap,mschap1,mschap2 
+                keepalive-timeout=10 one-session-per-host=no max-sessions=unlimited pado-delay=0 default-profile=pppoe-profile-rt20 
+
+
+
+#pool address
+
+  PPPoE-SERVER:
+
+   [PPPoE-SERVER@PPPoE-SERVER] > ip/pool/pr
+        Columns: NAME, RANGES
+        #  NAME       RANGES                   
+        0  pool-RT10  172.10.10.10-172.10.10.50
+        1  pool-RT20  172.20.20.10-172.20.20.50
+
+
+# secret
+
+  PPPoE-SERVER:
+
+   [PPPoE-SERVER@PPPoE-SERVER] > ppp/secret/pr
+        Columns: NAME, SERVICE, PASSWORD, PROFILE
+        # NAME    SERVICE  PASSWORD  PROFILE           
+        0 selena  pppoe    selena    pppoe-profile-rt10
+        1 kadita  pppoe    kadita    pppoe-profile-rt20
+
+
+
+# active
+
+ PPPoE-SERVER:
+
+   [PPPoE-SERVER@PPPoE-SERVER] > ppp/active/pr
+        Columns: NAME, SERVICE, CALLER-ID, ADDRESS, UPTIME
+        # NAME    SERVICE  CALLER-ID          ADDRESS       UPTIME
+        0 selena  pppoe    02:42:1C:76:CB:00  172.10.10.48  10m21s
+        1 kadita  pppoe    02:42:4F:B0:39:00  172.20.20.50  7m1s  
+        2 kadita  pppoe    02:42:4F:B0:39:00  172.20.20.49  6m55s 
+
+
+
+# kesimpulan
+
+client-selena dan client-kadita berhasil terkoneki ke PPPoE-SERVER.

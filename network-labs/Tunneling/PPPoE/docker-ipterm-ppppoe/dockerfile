@@ -1,0 +1,3 @@
+FROM gns3/ipterm
+
+RUN apt update && apt install -y nano htop curl net-tools iputils-ping kmod fish iperf3 iperf fish pppoe*

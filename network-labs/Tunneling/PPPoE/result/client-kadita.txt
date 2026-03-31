@@ -1,0 +1,36 @@
+# pppoe kadita
+
+
+  kadita:   (pppoe discovery)
+
+    root@client-kadita:~# pppoe-discovery
+        Access-Concentrator: PPPoE-SERVER
+            Service-Name: pppoe-server-rt20
+        AC-Ethernet-Address: 0c:a5:2d:a8:00:02
+        --------------------------------------------------
+
+
+  kadita:  (ip address dari server)
+
+      root@client-kadita:~# ip addr show ppp0
+        5: ppp0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1492 qdisc fq_codel state UNKNOWN group default qlen 3
+            link/ppp
+            inet 172.20.20.50 peer 172.20.20.1/32 scope global ppp0
+            valid_lft forever preferred_lft forever
+            inet6 fe80::39ba:bf85:e477:4f00 peer fe80::12eb:d366:f0:13/128 scope link
+            valid_lft forever preferred_lft forever
+
+
+  kadita:  (ping ke 8.8.8.8)
+
+     root@client-kadita:~# ping 8.8.8.8
+        PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+        64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=64.6 ms
+        64 bytes from 8.8.8.8: icmp_seq=2 ttl=111 time=49.1 ms
+        64 bytes from 8.8.8.8: icmp_seq=3 ttl=111 time=48.7 ms
+        64 bytes from 8.8.8.8: icmp_seq=4 ttl=111 time=43.0 ms
+        64 bytes from 8.8.8.8: icmp_seq=5 ttl=111 time=38.8 ms
+
+
+# kesimpulan
+client-kadita berhasil terkoneksi ke PPPoE-SERVER, dan mendapatkan ip address dari pool server
