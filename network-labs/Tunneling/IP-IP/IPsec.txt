@@ -1,0 +1,3 @@
+# password IPsec untuk IP-IP
+
+123456
