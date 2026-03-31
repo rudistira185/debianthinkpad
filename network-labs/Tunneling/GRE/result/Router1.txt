@@ -1,0 +1,70 @@
+#ip address
+  Router1:
+      
+      [admin@Router1] > ip/address/pr
+        Columns: ADDRESS, NETWORK, INTERFACE
+        # ADDRESS         NETWORK      INTERFACE
+        ;;; == to virbr1
+        0 10.10.10.10/24  10.10.10.0   ether1
+        1 1.1.1.1/32      1.1.1.1      lo
+        ;;; == p2p to Router2
+        2 172.10.10.1/30  172.10.10.0  ether2
+        3 50.50.50.1/30   50.50.50.0   to-r2
+
+
+#interface gre
+   Router1:
+
+      [admin@Router1] > interface/gre/pr
+        Flags: X - disabled; R - running
+        0  R name="to-r2" mtu=auto actual-mtu=1434 local-address=172.10.10.1
+            remote-address=172.10.10.2 keepalive=10s,10 dscp=inherit clamp-tcp-mss=yes
+            dont-fragment=no ipsec-secret="123456" allow-fast-path=no
+
+
+#route
+   Router1:
+     
+     [admin@Router1] > ip/route/pr
+        Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, o - OSPF
+        Columns: DST-ADDRESS, GATEWAY, DISTANCE
+            DST-ADDRESS     GATEWAY           DISTANCE
+        DAc 1.1.1.1/32      lo                       0
+        DAo 2.2.2.2/32      50.50.50.2%to-r2       110
+        DAc 10.10.10.0/24   ether1                   0
+        DAc 50.50.50.0/30   to-r2                    0
+        DAc 172.10.10.0/30  ether2                   0
+        D o 172.10.10.0/30  50.50.50.2%to-r2       110
+
+
+#ping to 2.2.2.2 (router2) via gre
+  Router1:
+
+      [admin@Router1] > ping 2.2.2.2
+        SEQ HOST                                     SIZE TTL TIME       STATUS
+            0 2.2.2.2                                    56  64 712us
+            1 2.2.2.2                                    56  64 791us
+            2 2.2.2.2                                    56  64 859us
+            3 2.2.2.2                                    56  64 662us
+            sent=4 received=4 packet-loss=0% min-rtt=662us avg-rtt=756us max-rtt=859us
+
+
+#sniffing from Router2
+  Router1:
+
+      [admin@Router1] > tool/sniffer/quick interface=to-r2 ip-protocol=icmp
+        Columns: INTERFACE, TIME, NUM, DIR, SRC-ADDRESS, DST-ADDRESS, PROTOCOL, SIZE, CPU
+        INTERFACE  TIME    NUM  DIR  SRC-ADDRESS  DST-ADDRESS  PROTOCOL  SIZE  CPU
+        to-r2      6.142     1  <-   50.50.50.2   1.1.1.1      ip:icmp     56    0
+        to-r2      6.142     2  ->   1.1.1.1      50.50.50.2   ip:icmp     56    0
+        to-r2      7.144     3  <-   50.50.50.2   1.1.1.1      ip:icmp     56    0
+        to-r2      7.144     4  ->   1.1.1.1      50.50.50.2   ip:icmp     56    0
+        to-r2      8.148     5  <-   50.50.50.2   1.1.1.1      ip:icmp     56    0
+        to-r2      8.148     6  ->   1.1.1.1      50.50.50.2   ip:icmp     56    0
+        to-r2      9.152     7  <-   50.50.50.2   1.1.1.1      ip:icmp     56    0
+        to-r2      9.152     8  ->   1.1.1.1      50.50.50.2   ip:icmp     56    0
+
+
+
+#kesimpulan 
+ Router1 dan Router2 berhasil terhubung menggunakan GRE + ospf.
