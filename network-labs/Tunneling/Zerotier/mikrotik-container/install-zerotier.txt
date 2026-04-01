@@ -1,0 +1,5 @@
+#depedence
+apt install curl gnupg -y
+
+#setup
+curl -s https://install.zerotier.com | bash

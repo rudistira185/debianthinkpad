@@ -1,0 +1,8 @@
+karena keterbatasan arsitektur mikrotik x86, package zerotier hanya tersedia untu
+arm64 saja, dan juga ternyata routing tidak bisa dilakukan pada zerotier versi gratis
+maka project ini bisa dibilang 1/2 berhasil
+
+- gagal karena zerotier versi gratis tidak bisa melakukan routing ke dalam mikrotik
+- berhasil karena antar node berhasil tyerhubung dengan control panel zerotrush cloud (screenshoot pada folder result/)
+
+

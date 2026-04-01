@@ -1,0 +1,5 @@
+# ip zerotier Router2
+
+- 10.209.70.60
+
+device id:  
