@@ -1,0 +1,83 @@
+#ip address
+   Router1:
+
+       [admin@Router1] > ip/address/pr
+    Columns: ADDRESS, NETWORK, INTERFACE
+    # ADDRESS         NETWORK     INTERFACE
+    ;;; == to virbr1
+    0 10.10.10.10/24  10.10.10.0  ether1
+    1 1.1.1.1/32      1.1.1.1     lo
+    2 15.15.15.1/30   15.15.15.0  ether2
+    3 20.20.20.1/30   20.20.20.0  wireguard-r1
+
+
+#interface wireguard-r1
+   Router1:
+       
+        [admin@Router1] > interface/wireguard/pr
+        Flags: X - disabled; R - running
+        0  R name="wireguard-r1" mtu=1420 listen-port=700 private-key="AHz2qdAUVg/UgsmvXbaLbHskudqyC6Hd+qgupjPuJkE="
+            public-key="BBAEtkL7PW9wZYn+UKklhPbN9YygpvCjyyZnUBxD1SI="
+
+
+#wireguard peers
+   Router1:
+
+      [admin@Router1] > interface/wireguard/peers/pr
+    Columns: INTERFACE, PUBLIC-KEY, ENDPOINT-ADDRESS, ENDPOINT-PORT, ALLOWED-ADDRESS
+    # INTERFACE     PUBLIC-KEY                                    ENDPOINT-ADDRESS  ENDPOINT-PORT  ALLOWED-ADDRESS
+    0 wireguard-r1  jr4npLFzOFXgTNp77LYw/Wu7TJ49e3jEfcKdrt+kjkU=  15.15.15.2                  700  20.20.20.2/32
+                                                                                                2.2.2.2/32
+
+                                                                                            
+#ping ke 2.2.2.2 (Router2) via wireguard-r1
+    Router1:
+
+       [admin@Router1] > ping 2.2.2.2
+    SEQ HOST                                     SIZE TTL TIME       STATUS
+        0 2.2.2.2                                    56  64 756us
+        1 2.2.2.2                                    56  64 774us
+        sent=2 received=2 packet-loss=0% min-rtt=756us avg-rtt=765us max-rtt=774us
+
+
+#route 
+   Router1:
+
+       [admin@Router1] > ip/route/pr
+      Flags: D - DYNAMIC; A - ACTIVE; c - CONNECT, s - STATIC
+      Columns: DST-ADDRESS, GATEWAY, DISTANCE
+      #     DST-ADDRESS    GATEWAY                  DISTANCE
+      DAc 1.1.1.1/32     lo                              0
+      0  As 2.2.2.2/32     20.20.20.2%wireguard-r1         1
+      DAc 10.10.10.0/24  ether1                          0
+      DAc 15.15.15.0/30  ether2                          0
+      DAc 20.20.20.0/30  wireguard-r1                    0
+
+
+#traceroute ke 2.2.2.2 (Router2) via wireguard-r1
+   Router1:
+      
+        [admin@Router1] > tool/traceroute 2.2.2.2
+        Columns: ADDRESS, LOSS, SENT, LAST, AVG, BEST, WORST, STD-DEV
+        #  ADDRESS  LOSS  SENT  LAST   AVG  BEST  WORST  STD-DEV
+        1  2.2.2.2  0%       3  0.5ms  0.6  0.5   0.7    0.1
+
+
+#sniffing from Router2 pada interface wireguard-r1
+    Router1:
+       
+       [admin@Router1] > tool/sniffer/quick interface=wireguard-r1 ip-protocol=icmp
+        Columns: INTERFACE, TIME, NUM, DIR, SRC-ADDRESS, DST-ADDRESS, PROTOCOL, SIZE, CPU
+        INTERFACE     TIME   NUM  DIR  SRC-ADDRESS  DST-ADDRESS  PROTOCOL  SIZE  CPU
+        wireguard-r1  3.222   13  <-   20.20.20.2   1.1.1.1      ip:icmp     56    0
+        wireguard-r1  3.222   14  ->   1.1.1.1      20.20.20.2   ip:icmp     56    0
+        wireguard-r1  3.643   15  ->   20.20.20.1   2.2.2.2      ip:icmp     56    0
+        wireguard-r1  3.643   16  <-   2.2.2.2      20.20.20.1   ip:icmp     56    0
+        wireguard-r1  4.225   17  <-   20.20.20.2   1.1.1.1      ip:icmp     56    0
+        wireguard-r1  4.225   18  ->   1.1.1.1      20.20.20.2   ip:icmp     56    0
+
+
+
+#kesimpulan
+
+Router1 dan Routr2 berhasil terhubung menggunakan wireguard
