@@ -1,0 +1,29 @@
+[tailscale-jakarta@tailscale-jakarta] > container/shell tailscale-jakarta   
+
+
+/ # ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: veth-ubuntu@if17: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 70:df:0d:b0:a5:ee brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 192.168.50.10/24 scope global veth-ubuntu
+       valid_lft forever preferred_lft forever
+    inet6 fe80::72df:dff:feb0:a5ee/64 scope link 
+       valid_lft forever preferred_lft forever
+3: tailscale0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1280 qdisc pfifo_fast state UNKNOWN group default qlen 500
+    link/none 
+    inet 100.120.101.38/32 scope global tailscale0
+       valid_lft forever preferred_lft forever
+    inet6 fd7a:115c:a1e0::d637:6527/128 scope global 
+       valid_lft forever preferred_lft forever
+
+
+/ # tailscale status
+100.120.101.38  tailscale-jakarta  rudistira185@  linux    -                          
+100.100.89.13   redmi-9c           rudistira185@  android  offline, last seen 1d ago  
+100.97.209.48   selene             rudistira185@  linux    -                          
+100.122.63.112  tailscale-bandung  rudistira185@  linux    idle, tx 428 rx 124
