@@ -1,0 +1,16 @@
+# hasil pembagianloabalancing
+
+
+isp1 - ether1 = 10.10.10.1
+isp2 - ether2 = 20.20.20.1
+
+
+client-sw1 - ether3 = 192.168.10.0/24 
+client-sw2 - ether4 = 192.168.20.0/24
+
+
+kedua client menjalankan iperf3 client ke iperf3server (10.47.8.26/24)
+
+
+di winbox terlihat packet tx/s menjadi besar, itu membuktikan bahwa loadbalancing berhasil,
+kedua sw-client mendapatkan gateway berbeda saat mencapai iperf3server (10.47.8.26/24)
