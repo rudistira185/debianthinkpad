@@ -1,0 +1,9 @@
+# from mikrotik-router
+
+[mikrotik-router@mikrotik-router] > ip dhcp-server/lease/pr
+Flags: D - DYNAMIC
+Columns: ADDRESS, MAC-ADDRESS, HOST-NAME, SERVER, STATUS, LAST-SEEN
+#   ADDRESS        MAC-ADDRESS        HOST-NAME      SERVER       STATUS  LAST-SEEN
+0 D 192.168.10.50  02:42:45:F5:2D:00  client-vlan10  dhcp-vlan10  bound   6s       
+1 D 192.168.20.50  02:42:6D:D6:8E:00  client-vlan20  dhcp-vlan20  bound   13m5s    
+2 D 192.168.30.50  02:42:38:F0:15:00  client-vlan30  dhcp-vlan30  bound   11m58s  
