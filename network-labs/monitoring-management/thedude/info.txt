@@ -1,0 +1,4 @@
+karena host linux tidak dapat menjalankan dude client, disini saya  menggunakan wine (layer kompabilitas)
+untuk menjalakan software windows di dalam linux
+
+dan karena keterbatasan storage github, untuk file backups gns3 (27M) saya tidak push ke github (.gitignore)

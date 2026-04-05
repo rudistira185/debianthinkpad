@@ -1,0 +1,22 @@
+# dijalankan pada Host
+  
+ PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+ NAME="Debian GNU/Linux"
+ VERSION_ID="13"
+ VERSION="13 (trixie)"
+ VERSION_CODENAME=trixie
+ DEBIAN_VERSION_FULL=13.2
+ Kernel="6.12.57+deb13-amd64"
+ GNS3-VERSION="3.0.5"
+
+# membutuhkan image 
+
+ docker  |  ipterm (tidak digunakan)
+ qemu    |  RouterOs CHR
+ virbr1  untuk remote ke host (juga untuk mengakses dude client)
+
+
+# Mikrotik network driver type
+virtio-net
+
+# virb1 untuk jalur ke internet sekaligus remote winbox dari host
