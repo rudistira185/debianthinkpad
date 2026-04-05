@@ -1,0 +1,9 @@
+dashboard tersebut berjalana pada host linux
+
+menggunakan docker-compose,prometheus, dan mktxp
+
+detail port:
+
+mkxtp:  49090:49090
+prometheus: 9090:9090
+grafana: 3000:3000
