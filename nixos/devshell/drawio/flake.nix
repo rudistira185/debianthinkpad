@@ -11,6 +11,8 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
+      # 🔥 Tambahkan baris ini untuk mengizinkan aplikasi unfree
+      config.allowUnfree = true; 
       overlays = [ nixgl.overlay ];
     };
   in
@@ -29,14 +31,10 @@
       ];
 
       shellHook = ''
-        # Set Locale (Menghindari warning bash di Debian)
         export LANG=en_US.UTF-8
         export LC_ALL=en_US.UTF-8
         export LOCALE_ARCHIVE=${pkgs.glibcLocales}/lib/locale/locale-archive
 
-        # 🔥 Alias sakti untuk Draw.io
-        # nixGL akan menjembatani driver Debian, sementara flag di belakangnya
-        # memaksa Electron (Chromium) untuk menyalakan hardware acceleration.
         alias drawio-run="nixGL drawio --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy"
 
         echo "Draw.io devShell ready 🚀 (GPU Accelerated)"
