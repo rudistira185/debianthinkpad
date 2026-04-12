@@ -1,1 +1,2 @@
+sudo chmod 777 /dev/ttyUSB*
 screen /dev/ttyUSB0 115200
