@@ -20,3 +20,6 @@ gns3/
 #zerotier-mikrotik
 network-labs/Tunneling/Zerotier/docker/zerotier-router1/zerotier/
 network-labs/Tunneling/Zerotier/docker/zerotier-router2/zerotier
+
+#linux-hotspot
+linux/hotspot/linux-wifi-hotspot/
