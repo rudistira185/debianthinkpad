@@ -25,6 +25,7 @@ scrape_configs:
       - targets:
           - 172.25.25.71      # IP ESP32 Anda
           - 8.8.8.8           # DNS Google (untuk cek internet)
+          - 172.50.50.1       # redmi note 0
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -33,3 +34,10 @@ scrape_configs:
       - target_label: __address__
         # Karena Blackbox pakai mode host, Prometheus memanggilnya via Gateway
         replacement: 172.30.30.1:9115
+
+  - job_name: 'redmi_note_9'
+    static_configs:
+      - targets: ['172.50.50.1:9100']
+        labels:  # <--- Pastikan ini menjorok ke dalam (di bawah targets)
+          device: 'merlin'
+          type: 'mobile'
