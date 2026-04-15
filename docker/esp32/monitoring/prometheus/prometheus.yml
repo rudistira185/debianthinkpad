@@ -41,3 +41,19 @@ scrape_configs:
         labels:  # <--- Pastikan ini menjorok ke dalam (di bawah targets)
           device: 'merlin'
           type: 'mobile'
+
+    # Probe ke Domain (Public via Cloudflare)
+  - job_name: 'tasmota_public_status'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - https://tasmota.rudistira185.shop
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 172.30.30.1:9115 # IP Gateway Docker (Host)
