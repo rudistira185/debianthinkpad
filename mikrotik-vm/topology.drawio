@@ -1,0 +1,81 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/146.0.7680.179 Electron/41.2.0 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="7MUSc61kxVf4GX0yfPxX">
+    <mxGraphModel dx="986" dy="628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#005700;fillColor=#008a00;align=center;verticalAlign=middle;rounded=0;fontColor=#ffffff;fontStyle=1;fontSize=17;" value="mikrotik-vm" vertex="1">
+          <mxGeometry height="50" width="160" x="250" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-18" edge="1" parent="1" source="0KdpEfY4jo5sgPKdyoHv-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.99;exitY=0.14;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="0KdpEfY4jo5sgPKdyoHv-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-2" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[[0.04,0.46,0,0,0],[0.99,0.14,0,0,0],[0.99,0.46,0,0,0]];align=center;fontSize=12;image=img/lib/mscae/VM_Linux.svg;fontStyle=1" value="Host Linux" vertex="1">
+          <mxGeometry height="70" width="76.09" x="351.91" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-3" parent="1" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/internet_cloud.svg;" value="" vertex="1">
+          <mxGeometry height="50" width="79.37" x="510" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-4" edge="1" parent="1" source="0KdpEfY4jo5sgPKdyoHv-3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.463;entryY=-0.016;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=diamond;endFill=1;startArrow=diamond;startFill=1;" target="0KdpEfY4jo5sgPKdyoHv-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-5" connectable="0" parent="0KdpEfY4jo5sgPKdyoHv-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;labelBackgroundColor=#33FFFF;fontColor=#1A1A1A;fontStyle=1" value="wlp4s0" vertex="1">
+          <mxGeometry relative="1" x="0.4987" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-6" parent="1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1" value="Mikrotik" vertex="1">
+          <mxGeometry height="53" width="78" x="350" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-7" edge="1" parent="1" source="0KdpEfY4jo5sgPKdyoHv-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.04;exitY=0.46;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;" target="0KdpEfY4jo5sgPKdyoHv-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="310" y="302" />
+              <mxPoint x="310" y="380" />
+              <mxPoint x="310" y="487" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-8" connectable="0" parent="0KdpEfY4jo5sgPKdyoHv-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" value="mikrotik1&lt;div&gt;172.90.90.1/24&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.4326" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-9" connectable="0" parent="0KdpEfY4jo5sgPKdyoHv-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" value="eth1&lt;div&gt;172.90.90.10/24&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.2182" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-11" edge="1" parent="1" source="0KdpEfY4jo5sgPKdyoHv-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=4;fillColor=#f0a30a;strokeColor=#BD7000;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#BD7000;fillColor=#f0a30a;align=center;verticalAlign=middle;rounded=0;fontColor=#000000;fontStyle=1;fontSize=11;" value="packet forward dari mikrotik1&lt;div&gt;ke eth1 mikrotik&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="70" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-13" edge="1" parent="1" source="0KdpEfY4jo5sgPKdyoHv-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.99;entryY=0.46;entryDx=0;entryDy=0;entryPerimeter=0;" target="0KdpEfY4jo5sgPKdyoHv-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="487" />
+              <mxPoint x="480" y="302" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-14" connectable="0" parent="0KdpEfY4jo5sgPKdyoHv-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" value="eth2&lt;div&gt;172.95.95.10/24&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.3793" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-15" connectable="0" parent="0KdpEfY4jo5sgPKdyoHv-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" value="mikrotik2&lt;div&gt;172.95.95.1/24&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.5074" y="3" as="geometry">
+            <mxPoint x="3" y="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0KdpEfY4jo5sgPKdyoHv-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#001DBC;fillColor=#0050ef;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=11;fontColor=#ffffff;" value="packet dari host&amp;nbsp;&lt;div&gt;kembali lewat eth2 mikrotik menuju cloud&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="560" y="250" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
