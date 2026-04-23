@@ -1,0 +1,2 @@
+FROM debian:stable-slim
+RUN apt update -y && apt upgrade -y && apt install iperf3 -y

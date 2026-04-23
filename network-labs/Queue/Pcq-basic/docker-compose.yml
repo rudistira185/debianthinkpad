@@ -1,0 +1,7 @@
+services:
+  iperf3server:
+    build: .
+    container_name: iperf3server
+    tty: "true"
+    command: "sleep infinity"
+    network_mode: "host"

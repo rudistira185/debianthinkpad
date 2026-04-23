@@ -1,0 +1,4 @@
+# rule untuk mangle
+
+UPLOAD   → forward   + src-address (LAN)
+DOWNLOAD → prerouting + dst-address (LAN)

@@ -1,0 +1,8 @@
+pada screenshoot kita berhasil untuk membatasi limit speed upload dan download
+menggunakan PCQ dan MANGLE
+
+sebelah kiri (sw-r1) 172.10.10.0/30
+sebalah kanan (sw-r2) 172.20.20.0/30
+
+pada  client1-r1 berhasil limit TX/RX ke maksimal 10M
+pada  client1-r2 berhasil limit TX/RX ke maksimal 5M
