@@ -1,0 +1,11 @@
+originator → IP router yang bikin info (contoh: 1.1.1.1)
+id → isi yang diumumkan
+kalau external → network (contoh: 172.10.10.0)
+kalau router → ID router
+instance → nama OSPF (biasanya main)
+
+👉 Cara ingat:
+
+originator = siapa kirim
+id = kirim apa
+instance = lewat OSPF mana

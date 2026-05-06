@@ -1,0 +1,4 @@
+protocol             |               port
+
+bgp   -   tcp                       179
+wireguard  -  udp           51820 (default), can be changed
