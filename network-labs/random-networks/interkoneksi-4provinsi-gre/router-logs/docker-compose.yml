@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  syslog-server:
+    image: rsyslog/rsyslog:latest
+    container_name: mikrotik-logger
+    restart: always
+    ports:
+      - "10500:10500/udp"
+    volumes:
+      - ./rsyslog.conf:/etc/rsyslog.conf
+      - ./logs:/var/log
+    network_mode: "host"
