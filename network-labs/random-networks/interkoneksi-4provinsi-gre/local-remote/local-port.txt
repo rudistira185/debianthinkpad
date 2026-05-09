@@ -1,2 +1,6 @@
 #jakarta
 core-jakarta      : localhost 5001
+jakarta-r1           : localhost 5004
+
+#nocj
+logserver-jakarta: localhost 5007
