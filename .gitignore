@@ -1,6 +1,4 @@
 token.txt
-
-
 #grafana
 docker/monitoring/grafana/grafana-data/*
 
@@ -23,3 +21,6 @@ network-labs/Tunneling/Zerotier/docker/zerotier-router2/zerotier
 
 #linux-hotspot
 linux/hotspot/linux-wifi-hotspot/
+
+# interkoneksi-4provinsi-gre
+network-labs/random-networks/interkoneksi-4provinsi-gre/router-logs/logs/*
