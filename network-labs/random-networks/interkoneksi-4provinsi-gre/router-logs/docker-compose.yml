@@ -9,5 +9,6 @@ services:
       - "10500:10500/udp"
     volumes:
       - ./rsyslog.conf:/etc/rsyslog.conf
-      - ./logs:/var/log
+      - ./logs/jakarta:/var/log/jakarta
+      - ./logs/bandung:/var/log/bandung
     network_mode: "host"
