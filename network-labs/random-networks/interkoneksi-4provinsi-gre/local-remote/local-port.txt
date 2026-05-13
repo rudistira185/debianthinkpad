@@ -1,6 +1,19 @@
 #jakarta
 core-jakarta      : localhost 5001
 jakarta-r1           : localhost 5004
+jakarta-r2          : localhost 5007
+jakarta-r3          : localhost 5011
 
-#nocj
-logserver-jakarta: localhost 5007
+
+#bandung
+core-bandung    : localhost 5014
+bandung-r1       :  localhost 5029
+bandung-r2       : localhost 5032
+
+
+#surabaya
+core-surabaya   : localhost 5021
+surabaya-r1        : localhost 5041
+
+#aceh
+core-aceh        :  localhost 5026
