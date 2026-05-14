@@ -1,3 +1,7 @@
 core-surabaya : 30.30.30.30:3100   via isp3 (30.30.30.1)
 
-surabaya-r1    : 172.30.30.2: 3200  via isp3 (dstnat from core-surabaya)
+surabaya-r1    : 172.30.30.2: 3200  via core-surabaya from isp3
+
+surabaya-r2    : 172.35.35.2 : 3300 via core-surabaya from isp3
+
+surabaya-r3   : use loopback 3.6.6.6 : 3400 via core-surabaya from isp3

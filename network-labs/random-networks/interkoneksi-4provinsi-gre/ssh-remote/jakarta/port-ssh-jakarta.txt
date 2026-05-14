@@ -1,0 +1,7 @@
+core-jakarta : 10.10.10.10 :1100 via isp1 (10.10.10.1)
+
+jakarta-r1   : 172.10.10.2 : 1200 via core-jakarta from isp1
+
+jakarta-r2  : 172.15.15.2 : 1300 via core-jakarta from isp1
+
+jakarta-r3  : use loopback 1.4.4.4 : 1400 via core-jakarta from isp1

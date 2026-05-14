@@ -1,3 +1,3 @@
-core-bandung
+core-bandung : 2222
 bandung-r1  : 2200
 bandung-r2: 2300
