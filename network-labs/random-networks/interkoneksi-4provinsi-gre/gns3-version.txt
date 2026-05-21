@@ -1,0 +1,4 @@
+gns3server   version   : 3.0.6
+gns3gui  version          :  3.0.6
+ubridge version           : 0.9.19
+host                                 : linux debian13
