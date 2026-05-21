@@ -19,3 +19,5 @@ surabaya-r3      : localhost 5047
 
 #aceh
 core-aceh        :  localhost 5026
+aceh-r1          : localhost 5035
+aceh-r2          : localhost 5038
