@@ -1,0 +1,23 @@
+#jakarta
+core-jakarta  : 40.40.40.40 port 8110
+jakarta-r1       : 172.10.10.2 port 8120
+jakarta-r2       : 172.15.15.2 port 8130
+jakarta-r3       :  loopback 1.4.4.4 port 8140
+
+
+#bandung
+core-bandung : 20.20.20.20 port 8210
+bandung-r1      : 172.20.20.2 port 8220
+bandung-r2      : 172.25.25.2 port 8230
+
+
+#surabaya
+core-surabaya : 30.30.30.30 port 8310
+surabaya-r1       :  172.30.30.2 port 8320
+surabaya-r2     : 172.35.35.2 port 8330
+surabaya-r3     : loopback 3.6.6.6 port 8340
+
+# aceh
+core-aceh     :  8410
+aceh-r1          : 8420
+aceh-r2          : 8430

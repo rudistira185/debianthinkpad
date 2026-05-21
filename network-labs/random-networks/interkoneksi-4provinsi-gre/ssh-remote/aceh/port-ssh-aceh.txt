@@ -1,0 +1,5 @@
+core-aceh : 40.40.40.40:4100   via isp4 (40.40.40.1)
+
+aceh-r1     : 172.40.40.2 : 4200   via core-aceh DSTNAT
+
+aceh-r2    : 172.45.45.2 : 4300  via core-aceh    DSTNAT

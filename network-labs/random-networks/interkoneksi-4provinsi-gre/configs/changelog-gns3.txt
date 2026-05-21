@@ -1,0 +1,9 @@
+untuk semua router
+
+
+rev1   :    - firewall ✅
+            - ospf ✅
+            - ebgp ❌
+            - gre ❌
+            - kabel-local ✅
+            - kabel-tunnel ✅

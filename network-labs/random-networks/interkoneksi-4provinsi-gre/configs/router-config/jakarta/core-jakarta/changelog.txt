@@ -1,0 +1,6 @@
+version          |  time commit       |     feature
+
+rev1                   21 mei 2026             - firewall ✅
+                                                                 -  OSPF  (to jakarta-r1, jakarta-r2 )✅
+                                                                 -  GRE  ( to bandung, surabaya, aceh ) ✅
+                                                                 - DSTNAT ssh/winbox  ✅
