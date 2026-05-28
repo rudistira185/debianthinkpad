@@ -1,0 +1,11 @@
+[Unit]
+Description=QEMU Virtual Interfaces Initialization
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/carlos/debianthinkpad/network-labs/.network-interface-list.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
