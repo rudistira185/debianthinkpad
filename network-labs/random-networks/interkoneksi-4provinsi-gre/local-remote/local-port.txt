@@ -3,6 +3,7 @@ core-jakarta      : localhost 5001
 jakarta-r1           : localhost 5004
 jakarta-r2          : localhost 5007
 jakarta-r3          : localhost 5011
+jakarta-sw-managed01  : localhost 5051
 
 
 #bandung
