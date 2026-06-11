@@ -10,7 +10,9 @@ jakarta-sw-managed01  : localhost 5051
 core-bandung    : localhost 5014
 bandung-r1       :  localhost 5029
 bandung-r2       : localhost 5032
-
+bandung-mpls-lsr : localhost 5058
+bandung-mpls-ler1 : localhost 5061
+bandung-mpls-ler2 : localhost 5064
 
 #surabaya
 core-surabaya   : localhost 5021
@@ -22,3 +24,5 @@ surabaya-r3      : localhost 5047
 core-aceh        :  localhost 5026
 aceh-r1          : localhost 5035
 aceh-r2          : localhost 5038
+aceh-pcq-tree : localhost 5073
+aceh-pcq-loadbalancing: localhost 5076

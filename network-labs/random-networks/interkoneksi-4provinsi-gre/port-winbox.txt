@@ -9,7 +9,9 @@ jakarta-r3       :  loopback 1.4.4.4 port 8140
 core-bandung : 20.20.20.20 port 8210
 bandung-r1      : 172.20.20.2 port 8220
 bandung-r2      : 172.25.25.2 port 8230
-
+bandung-mpls-lsr : 172.21.21.2 port 8240
+bandung-mpls-ler1 : 172.22.22.2 port 8250
+bandung-mpls-ler2: 172.23.23.2 port 8260
 
 #surabaya
 core-surabaya : 30.30.30.30 port 8310
@@ -21,3 +23,4 @@ surabaya-r3     : loopback 3.6.6.6 port 8340
 core-aceh     :  8410
 aceh-r1          : 8420
 aceh-r2          : 8430
+aceh-pcq-loadbalancing : use loopback 4.8.8.8 port 6440

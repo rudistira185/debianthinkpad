@@ -6,6 +6,19 @@ dns - tcp&udp                53
 ntp - udp                          123
 ipsec - udp                      500,4500
 LDP - tcp                           646
+LDP=udp                          646
+l2tp -udp                          - 1701
 mpls/l3vpn - tcp           179
 ipsec-esp                         -
 ospf                                    -
+ripv1,v2 (ipv4) - udp    - 520
+ripng (ipv6) - udp          - 521
+dhcpserver - udp           - 67
+dhcpclient - udp             - 68
+snmp - udp                      - 161
+sstp - tcp                          - 443
+zerotier - udp                  - 9993
+tailscale - udp                - 41641
+vxlan - udp                       - 8472 / 4789
+gre - ipprotocol               -
+radius - udp                       - 1812 (auth), 1813 (acct)

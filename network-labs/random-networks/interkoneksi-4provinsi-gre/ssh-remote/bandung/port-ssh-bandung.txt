@@ -1,3 +1,6 @@
 core-bandung : 2222
 bandung-r1  : 2200
 bandung-r2: 2300
+bandung-mpls-lsr : 2400
+bandung-mpls-ler1 : 2500
+bandung-mpls-ler2 : 172.23.23.2 port 2600
