@@ -1,0 +1,5 @@
+#aceh
+   hostpot:
+        username : user1-hotspot
+                              user1
+                              vnc localhost 5901

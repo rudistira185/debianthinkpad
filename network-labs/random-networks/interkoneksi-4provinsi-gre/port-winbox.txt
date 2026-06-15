@@ -24,3 +24,4 @@ core-aceh     :  8410
 aceh-r1          : 8420
 aceh-r2          : 8430
 aceh-pcq-loadbalancing : use loopback 4.8.8.8 port 6440
+aceh-pcq-tree: use loopback 4.7.7.7 port 8450

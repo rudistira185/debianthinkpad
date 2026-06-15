@@ -1,0 +1,10 @@
+services:
+  freeradius:
+    image: freeradius/freeradius-server:latest
+    container_name: freeradius
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./raddb/clients.conf:/etc/freeradius/clients.conf:ro
+      - ./raddb/mods-config/files/authorize:/etc/freeradius/mods-config/files/authorize:ro
+    command: -X

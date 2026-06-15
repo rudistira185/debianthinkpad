@@ -1,0 +1,10 @@
+#hotspot 
+client1-hotspot-radius Cleartext-Password := "client1-hotspot-radius"
+                        Mikrotik-Rate-Limit := "5M/5M"
+
+client123 Cleartext-Password := "123"
+                        Mikrotik-Rate-Limit := "10M/10M"
+
+#pppoe
+client1-pppoe-radius Cleartext-Password := "client1-pppoe-radius"
+                      Mikrotik-Rate-Limit := "20M/20M"
