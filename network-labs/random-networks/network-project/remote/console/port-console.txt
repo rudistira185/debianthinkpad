@@ -1,0 +1,2 @@
+# jakarta
+core-jakarta: localhost 5002
