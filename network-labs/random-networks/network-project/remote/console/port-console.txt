@@ -1,2 +1,5 @@
 # jakarta
 core-jakarta: localhost 5002
+jakarta-r1: localhost 5006
+jakarta-r2: localhost 5009
+jakarta-r3: localhost 5012
