@@ -1,0 +1,5 @@
+core-surabaya: 30.30.30.30 or
+              30.80.80.30 port 2310
+surabaya-r1   : use loopback 3.4.4.4 port 2320
+surabaya-r2   : use loopback 3.5.5.5 port 2330
+surabaya-r3   : use loopback 3.6.6.6 port 2340

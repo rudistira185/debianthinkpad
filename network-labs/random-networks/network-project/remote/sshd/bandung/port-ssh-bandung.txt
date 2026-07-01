@@ -1,0 +1,6 @@
+core-bandung: 20.20.20.20 or
+              20.80.80.20 port 2210
+
+bandung-r1  : use loopback 2.3.3.3 port 2220
+bandung-r2  : use loopback 2.4.4.4 port 2230
+bandung-r3  : use loopback 2.5.5.5 port 2240

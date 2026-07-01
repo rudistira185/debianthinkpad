@@ -3,3 +3,17 @@ core-jakarta: localhost 5002
 jakarta-r1: localhost 5006
 jakarta-r2: localhost 5009
 jakarta-r3: localhost 5012
+
+
+#bandung
+core-bandung: localhost 5015
+bandung-r1: localhost 5023
+bandung-r2: localhost 5026
+bandung-r3: localhost 5029
+
+
+#surabaya
+core-surabaya:  localhost 5032
+surabaya-r1: localhost 5037
+surabaya-r1: localhost 5040
+surabaya-r3: localhost 5043

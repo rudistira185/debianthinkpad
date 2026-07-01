@@ -1,3 +1,17 @@
 # jakarta
-
 jakarta-r4 : use dstnat 10.10.10.10 port 8140
+
+
+#bandung
+core-bandung : 20.20.20.20 or
+               20.80.80.20 port 8210
+bandung-r1: use loopback 2.3.3.3 port 8220
+bandung-r2: use loopback 2.4.4.4 port 8230
+bandung-r3: use loopback 2.5.5.5 port 8240
+
+#surabaya
+core-surabaya : 30.30.30.30 or
+                30.80.80.30 port 8310
+surabaya-r1   : use loopback 3.4.4.4 port 8320
+surabaya-r2   : use loopback 3.5.5.5 port 8330
+surabaya-3    : use loopbvack 3.6.6.6 port 8340
