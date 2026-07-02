@@ -1,0 +1,51 @@
+name: build
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags:
+      - '*'
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build:
+    uses: docker/github-builder/.github/workflows/bake.yml@v1
+    permissions:
+      contents: read # same as global permissions
+      id-token: write # for signing attestation(s) with GitHub OIDC Token
+    with:
+      setup-qemu: true
+      target: image-all
+      cache: true
+      cache-scope: image
+      output: image
+      push: ${{ github.event_name != 'pull_request' }}
+      set-meta-labels: true
+      meta-images: |
+        librenms/librenms
+      meta-tags: |
+        type=match,pattern=(.*)-r,group=1
+        type=ref,event=pr
+        type=edge
+      meta-labels: |
+        org.opencontainers.image.title=LibreNMS
+        org.opencontainers.image.description=Fully featured network monitoring system
+        org.opencontainers.image.vendor=LibreNMS
+    secrets:
+      registry-auths: |
+        - registry: docker.io
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}

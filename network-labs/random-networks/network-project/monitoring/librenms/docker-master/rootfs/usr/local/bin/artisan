@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cd /opt/librenms || exit 1
+gosu librenms:librenms php artisan "$@"
