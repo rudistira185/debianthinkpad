@@ -24,3 +24,6 @@ linux/hotspot/linux-wifi-hotspot/
 
 # interkoneksi-4provinsi-gre
 network-labs/random-networks/interkoneksi-4provinsi-gre/router-logs/logs/*
+
+#librenms-database
+network-labs/random-networks/network-project/monitoring/librenms/docker-master/examples/compose/db/
