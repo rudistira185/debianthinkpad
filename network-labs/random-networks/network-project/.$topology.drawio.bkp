@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/146.0.7680.179 Electron/41.2.0 Safari/537.36">
   <diagram name="Page-1" id="Z28fSfN0u3bM4-OtGWP3">
-    <mxGraphModel dx="2727" dy="4027" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1523" dy="3397" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -712,10 +712,10 @@
         <mxCell id="Ghzep49fVXHFq4opwV6m-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fillColor=light-dark(#FFFFFF,#66FFB3);strokeColor=none;fontColor=light-dark(#000000,#000000);labelBorderColor=none;textShadow=1;fontFamily=Helvetica;fontSize=15;" value="redistribution ospf over ebgp" vertex="1">
           <mxGeometry height="40" width="120" x="1080" y="-985" as="geometry" />
         </mxCell>
-        <mxCell id="4bq9rKsljP_3ijosCMCP-2" parent="1" style="strokeColor=#ffffff;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=17;rounded=1;" value="vxlan-r1" vertex="1">
+        <mxCell id="4bq9rKsljP_3ijosCMCP-2" parent="1" style="strokeColor=#ffffff;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=17;rounded=1;" value="vxlan-r1&lt;div&gt;lo 172.1.1.1&lt;/div&gt;" vertex="1">
           <mxGeometry height="70" width="103.02" x="1986.98" y="-1555" as="geometry" />
         </mxCell>
-        <mxCell id="4bq9rKsljP_3ijosCMCP-3" parent="1" style="strokeColor=#ffffff;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=17;rounded=1;" value="vxlan-r2" vertex="1">
+        <mxCell id="4bq9rKsljP_3ijosCMCP-3" parent="1" style="strokeColor=#ffffff;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=17;rounded=1;" value="vxlan-r2&lt;div&gt;172.2.2.2&lt;/div&gt;" vertex="1">
           <mxGeometry height="70" width="103.02" x="2450" y="-1575" as="geometry" />
         </mxCell>
         <mxCell id="4bq9rKsljP_3ijosCMCP-4" edge="1" parent="1" source="4bq9rKsljP_3ijosCMCP-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;endArrow=none;endFill=0;strokeWidth=2;" target="4bq9rKsljP_3ijosCMCP-3">
@@ -785,7 +785,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4bq9rKsljP_3ijosCMCP-23" parent="1" style="strokeColor=#ffffff;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=17;rounded=1;" value="vxlan-r3" vertex="1">
+        <mxCell id="4bq9rKsljP_3ijosCMCP-23" parent="1" style="strokeColor=#ffffff;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=17;rounded=1;" value="vxlan-r3&lt;div&gt;172.3.3.3&lt;/div&gt;" vertex="1">
           <mxGeometry height="70" width="103.02" x="2230" y="-1470" as="geometry" />
         </mxCell>
         <mxCell id="4bq9rKsljP_3ijosCMCP-24" parent="1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.switches.workgroup_switch;fontStyle=1" value="sw-lan-vxlan2&lt;div&gt;192.168.100.0/24&lt;/div&gt;" vertex="1">
@@ -1143,10 +1143,10 @@
         <mxCell id="4bq9rKsljP_3ijosCMCP-131" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=15;image=img/lib/mscae/Docker.svg;fontStyle=1" value="docker from host&lt;div&gt;use network mode host&lt;/div&gt;&lt;div&gt;for grafana /&amp;nbsp; prometheus&lt;/div&gt;&lt;div&gt;to all core router&lt;/div&gt;&lt;div&gt;via gateway isp&lt;/div&gt;" vertex="1">
           <mxGeometry height="95" width="115.85" x="310" y="-727.5" as="geometry" />
         </mxCell>
-        <mxCell id="4bq9rKsljP_3ijosCMCP-133" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fillColor=light-dark(#FFFFFF,#B266FF);strokeColor=none;fontColor=light-dark(#000000,#FFFFFF);labelBorderColor=none;textShadow=1;fontFamily=Helvetica;fontSize=17;" value="glo0al thedude client&lt;div&gt;use SNMP&lt;/div&gt;&lt;div&gt;server dude core-jakarta&lt;/div&gt;" vertex="1">
+        <mxCell id="4bq9rKsljP_3ijosCMCP-133" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fillColor=light-dark(#FFFFFF,#B266FF);strokeColor=none;fontColor=light-dark(#000000,#FFFFFF);labelBorderColor=none;textShadow=1;fontFamily=Helvetica;fontSize=17;" value="global thedude client&lt;div&gt;use SNMP&lt;/div&gt;&lt;div&gt;server dude core-jakarta&lt;/div&gt;" vertex="1">
           <mxGeometry height="100" width="200" x="1650" y="-1560" as="geometry" />
         </mxCell>
-        <mxCell id="4bq9rKsljP_3ijosCMCP-134" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=16;strokeColor=light-dark(#000000,#FF8000);fillColor=light-dark(#FFFFFF,#FFCCFF);fontColor=light-dark(#000000,#000000);" value="emulated by GNS3&lt;div&gt;host cachyOs&lt;/div&gt;&lt;div&gt;network intel E1000&lt;/div&gt;" vertex="1">
+        <mxCell id="4bq9rKsljP_3ijosCMCP-134" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=16;strokeColor=light-dark(#000000,#FF8000);fillColor=light-dark(#FFFFFF,#FFCCFF);fontColor=light-dark(#000000,#000000);" value="emulated by GNS3&lt;div&gt;host cachyOs&lt;/div&gt;&lt;div&gt;network virtio&lt;/div&gt;" vertex="1">
           <mxGeometry height="60" width="166.98" x="1040" y="-1760" as="geometry" />
         </mxCell>
         <mxCell id="4bq9rKsljP_3ijosCMCP-137" parent="1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.servers.fileserver;fontStyle=1;fontSize=16;" value="linux-zerotier&lt;div&gt;(this is qemu/kvm)&lt;/div&gt;" vertex="1">
@@ -1224,7 +1224,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="krHp1aCAwCkEFdkDUihN-5" connectable="0" parent="krHp1aCAwCkEFdkDUihN-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;fontSize=15;" value="eth5&lt;div&gt;10.7.7.1/30&lt;/div&gt;" vertex="1">
+        <mxCell id="krHp1aCAwCkEFdkDUihN-5" connectable="0" parent="krHp1aCAwCkEFdkDUihN-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;fontSize=15;" value="eth5&lt;div&gt;10.8.8.1/30&lt;/div&gt;" vertex="1">
           <mxGeometry relative="1" x="-0.0782" y="1" as="geometry">
             <mxPoint x="14" y="7" as="offset" />
           </mxGeometry>
@@ -1344,8 +1344,19 @@
         <mxCell id="krHp1aCAwCkEFdkDUihN-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fillColor=light-dark(#FFFFFF,#66FFB3);strokeColor=none;fontColor=light-dark(#000000,#000000);labelBorderColor=none;textShadow=1;fontFamily=Helvetica;fontSize=15;" value="gre use ipsec" vertex="1">
           <mxGeometry height="40" width="120" x="840" y="-985" as="geometry" />
         </mxCell>
-        <mxCell id="krHp1aCAwCkEFdkDUihN-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=16;strokeColor=light-dark(#000000,#FF8000);fillColor=light-dark(#FFFFFF,#FFCCFF);fontColor=light-dark(#000000,#000000);" value="all router enable SSHD and winbox service" vertex="1">
+        <mxCell id="krHp1aCAwCkEFdkDUihN-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=16;strokeColor=light-dark(#000000,#FF8000);fillColor=light-dark(#FFFFFF,#FFCCFF);fontColor=light-dark(#000000,#000000);" value="all router disabled RoMON" vertex="1">
           <mxGeometry height="60" width="166.98" x="230" y="-1776" as="geometry" />
+        </mxCell>
+        <mxCell id="BE-lAAwSIiGqybD08P7X-1" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=15;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elemental;" value="iperf3server40&lt;div&gt;179.40.40.2/30&lt;/div&gt;" vertex="1">
+          <mxGeometry height="67.02" width="67.02" x="2020" y="-745" as="geometry" />
+        </mxCell>
+        <mxCell id="BE-lAAwSIiGqybD08P7X-2" edge="1" parent="1" source="A2IGaPd91c2fAuQbmj6B-77" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.88;exitY=0.9;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;endArrow=none;endFill=0;" target="BE-lAAwSIiGqybD08P7X-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BE-lAAwSIiGqybD08P7X-3" connectable="0" parent="BE-lAAwSIiGqybD08P7X-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="eth4&lt;div&gt;179.40.40.1/30&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.6065" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
