@@ -22,3 +22,4 @@ tailscale - udp                - 41641
 vxlan - udp                       - 8472 / 4789
 gre - ipprotocol               -
 radius - udp                       - 1812 (auth), 1813 (acct)
+bfd - udp                         - 3784,3785,4784
