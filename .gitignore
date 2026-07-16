@@ -27,3 +27,6 @@ network-labs/random-networks/interkoneksi-4provinsi-gre/router-logs/logs/*
 
 #librenms-database
 network-labs/random-networks/network-project/monitoring/librenms/docker-master/examples/compose/db/
+
+#netmiko
+network-labs/random-networks/network-project2/netmiko/.env*
