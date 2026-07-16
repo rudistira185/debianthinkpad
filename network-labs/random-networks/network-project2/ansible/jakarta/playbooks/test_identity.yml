@@ -1,0 +1,18 @@
+---
+- name: Test koneksi RouterOS API
+  hosts: area_jakarta
+  gather_facts: false
+
+  tasks:
+
+    - name: Ambil identity
+      community.routeros.api_info:
+        hostname: "{{ ansible_host }}"
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_password }}"
+        port: "{{ ansible_port }}"
+        path: system identity
+      register: identity
+
+    - debug:
+        var: identity

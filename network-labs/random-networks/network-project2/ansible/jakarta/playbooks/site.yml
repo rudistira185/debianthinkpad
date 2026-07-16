@@ -1,0 +1,6 @@
+---
+- hosts: area_jakarta
+  gather_facts: false
+
+  roles:
+    - dns

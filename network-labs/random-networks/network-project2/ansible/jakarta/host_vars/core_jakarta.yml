@@ -1,0 +1,5 @@
+router_id: 1.1.1.1
+
+loopbacks:
+  - 1.1.1.1/32
+
