@@ -1,0 +1,3 @@
+#jakarta
+core-jakarta : 10.10.10.10 or
+               10.80.80.10 port 2110

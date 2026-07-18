@@ -12,17 +12,52 @@ router = {
 
 # 2. Pengelompokan Perintah Konfigurasi Awal
 grouped_commands = {
-    "SYSTEM INFO": [
-        "/system identity print",
-        "/system resource print",
+    "SET INTERFACE": [
+        "/interface set ether1 name=eth1.to-isp1",
+        "/interface set ether2 name=eth2.to-isp1-failover",
+        "/interface set ether3 name=eth3.to-netmiko",
     ],
-    "DNS CONFIGURATION": [
-        "/ip dns set servers=8.8.8.8 allow-remote-requests=yes", 
+
+    "SET SERVICES": [
+       '/ip service/set ssh port=2110 address=10.10.10.1,10.80.80.1,10.90.90.1',
+       '/ip service/set winbox port=8110 address=10.10.10.1,10.80.80.1',
     ],
-    "CREATE NEW USER": [
-        # Membuat user baru bernama 'netmiko' dengan hak akses 'full'
-        "/user add name=test1 group=full password=test1",
-    ]
+
+    "SET IPADDRESS": [
+        "/ip address add address=10.10.10.10/24 interface=eth1.to-isp1",
+        "/ip address add address=10.80.80.10/24 interface=eth2.to-isp1-failover",
+        "/ip address add address=10.90.90.2/29 interface=eth3.to-netmiko",   
+    ],
+
+    "CREATE FIREWALL": [
+        #remove firewall
+        '/ip firewall filter remove [find chain=input]'
+
+        #address-list
+        "/ip firewall address-list add list=input-remote address=10.10.10.1",
+        "/ip firewall address-list add list=input-remote address=10.80.80.1",
+        "/ip firewall address-list add list=input-remote address=10.90.90.1",
+
+        #filter / input
+        '/ip firewall/filter/add chain=input action=accept connection-state=established,related comment="== INPUT CONNTRACK =="',
+        '/ip firewall/filter/add chain=input action=drop connection-state=invalid',
+        '/ip firewall/filter/add chain=input action=accept protocol=icmp comment="== INPUT ICMP =="',
+        '/ip firewall/filter/add chain=input action=accept protocol=tcp dst-port=2110,8110 src-address-list=input-remote comment="== INPUT REMOTE =="',
+        '/ip firewall/filter/add chain=input action=drop comment="== INPUT DROP ALL =="',
+    ],
+
+   "CREATE USER": [
+       "/user add name=core-jakarta group=full password=core-jakarta",
+    ],
+
+
+   "Routing": [
+       #route static
+       '/ip route/add dst-address=0.0.0.0/0 gateway=10.10.10.1 routing-table=main distance=1 check-gateway=ping comment="== default gateway main isp1"',
+       '/ip route/add dst-address=0.0.0.0/0 gateway=10.80.80.1 routing-table=main distance=2 comment="== default gateway main isp1-failover"',
+       '/ip route/add dst-address=0.0.0.0/0 gateway=10.10.10.1 routing-table=isp1 distance=3 check-gateway=ping comment="== gateway table isp1"',
+       '/ip route/add dst-address=0.0.0.0/0 gateway=10.80.80.1 routing-table=isp1-failover distance=4 comment="== gateway table isp1-failover"',
+   ]
 }
 
 try:

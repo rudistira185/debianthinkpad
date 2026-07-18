@@ -1,0 +1,5 @@
+#copy file from mikrotik
+scp -P 2110 -r netmiko@10.90.90.2:nama_folder /path/tujuan/di/linux
+
+#interactive
+sftp -P 2110 netmiko@10.90.90.2
