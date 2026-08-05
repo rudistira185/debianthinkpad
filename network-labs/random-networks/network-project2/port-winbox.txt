@@ -1,0 +1,4 @@
+#jakarta
+core-jakarta : 10.10.10.10 or
+                10.80.80.10 port 8110
+jakarta-r1   : use loopback 1.2.2.2 port 8120

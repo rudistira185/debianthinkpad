@@ -37,7 +37,7 @@ grouped_commands = {
         "/ip address add address=10.90.90.2/29 interface=eth3.to-netmiko",
         "/ip address add address=10.1.1.1/30 interface=eth4.to-jakarta-r1",
         '/ip address add address=10.2.2.1/30 interface=eth5.to-jakarta-r2',
-        "/ip address add address=172.10.10.1/24 interface=eth8.to-bridge-interconnection",  
+        "/ip address add address=172.10.10.1/24 interface=eth8.to-bridge-interconnection",
         "/ip address/add address=1.1.1.1/32 interface=lo",
 
        #gre
@@ -62,7 +62,13 @@ grouped_commands = {
         '/ip firewall/address-list/add list=input-ebgp address=172.20.20.2',
         '/ip firewall/address-list/add list=input-ebgp address=172.20.20.3',
         '/ip firewall/address-list/add list=input-ebgp address=172.20.20.4',
-
+        '/ip firewall/address-list/add list=input-dns address=10.1.1.0/30',
+        '/ip firewall/address-list/add list=input-dns address=10.2.2.0/30',
+        '/ip firewall/address-list/add list=input-dns address=10.3.3.0/30',
+        '/ip firewall/address-list/add list=input-dns address=10.4.4.0/30',
+        #address-list dstnat
+        '/ip firewall/address-list/add list=dstnat-to-jakarta-r1 address=10.10.10.1',
+        '/ip firewall/address-list/add list=dstnat-to-jakarta-r1 address=10.80.80.1',
         #filter / input
         '/ip firewall/filter/add chain=input action=accept connection-state=established,related comment="== INPUT CONNTRACK =="',
         '/ip firewall/filter/add chain=input action=drop connection-state=invalid',
@@ -77,20 +83,45 @@ grouped_commands = {
         '/ip firewall/filter/add chain=input action=accept protocol=gre src-address-list=input-gre comment="== INPUT GRE"',
         #ebgp
         '/ip firewall/filter/add chain=input action=accept protocol=tcp dst-port=179 src-address-list=input-ebgp comment="== INPUT EBGP =="',
-        '/ip firewall/filter/add chain=input action=drop comment="== INPUT DROP ALL =="',        
+        #dns
+         '/ip firewall/filter/add chain=input action=accept src-address-list=input-dns protocol=tcp dst-port=53 comment="== INPUT DNS =="',
+         '/ip firewall/filter/add chain=input action=accept src-address-list=input-dns protocol=udp dst-port=53 comment="== INPUT DNS =="',
+        #input drop all
+        '/ip firewall/filter/add chain=input action=drop comment="== INPUT DROP ALL =="',
+
+        #NAT
+        '/ip firewall/nat/add chain=srcnat action=masquerade out-interface=eth1.to-isp1',
+        '/ip firewall/nat/add chain=srcnat action=masquerade out-interface=eth2.to-isp1-failover',
+
+        #dsnat
+        '/ip firewall/nat/add chain=dstnat action=dst-nat src-address-list=dstnat-to-jakarta-r1 protocol=tcp dst-port=2120 to-addresses=1.2.2.2 to-ports=2120 comment="== dstnat to jakarta-r1"',
     ],
 
    "CREATE USER": [
-       "/user add name=core-jakarta group=full password=core-jakarta",
-    ],
+           "/user add name=core-jakarta group=full password=core-jakarta",
+        ],
 
+    "SYSTEM": [
+       # '/system/identity/set name=core-jakarta',
+        '/ip dns/set servers=8.8.8.8 allow-remote-requests=yes',
+        '/system/ntp/client/set servers=0.id.pool.ntp.org enabled=yes',
+        '/system/clock/set time-zone-autodetect=no time-zone-name=Asia/Jakarta',
+        #sshd
+        # SSH public key
+        '/file/add name=jakarta.pub type=file contents="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJpDof/rA67dlN8SYgpS9SqP7qsGYMdW1JP9U2wwb30n carlos@carlos"',
+        '/user/ssh-keys/import public-key-file=jakarta.pub user=core-jakarta',
+    ],
 
    "Routing": [
 
        #routing filter
-       # 'routing/filter/rule/set chain=out.ospf-main rule="if (dst == 10.10.10.0/24) {reject}\nif (dst == 10.80.80.0/24) {reject}\nif (dst == 10.90.90.0/29) {reject}\naccept;"',
-       '/routing/filter/rule/set chain=out.ospf-main rule="if (dst == 10.10.10.0/24) {reject}; if (dst == 10.80.80.0/24) {reject}; if (dst == 10.90.90.0/29) {reject}; accept;"',
+       # 'routing/filter/rule/set chain=out.ospf-main rule="if (dst == 10.10.10.0/24) {reject}\nif (dst == 10.80.80.0/24) {reject}\nif (dst == 10.90.90.0/29) {reject}\nac
+       '/routing/filter/rule add chain=out.ospf-main rule="if (dst == 10.10.10.0/24) {reject} if (dst == 10.80.80.0/24) {reject} if (dst == 10.90.90.0/29) {reject} accept"',
+       '/routing/filter/rule add chain=out.ebgp rule="if (dst == 172.20.20.1/32 || dst == 172.20.20.2/32 || dst == 172.20.20.3/32 || dst == 172.20.20.4/32) {reject} accept"',
 
+       #tables
+       '/routing/table/add name=isp1 fib',
+       '/routing/table/add name=isp1-failover fib',
        #route static
        '/ip route/remove [find dst-address=0.0.0.0/0]',
        '/ip route/add dst-address=0.0.0.0/0 gateway=10.10.10.1 routing-table=main distance=1 check-gateway=ping comment="== default gateway main isp1"',
@@ -99,23 +130,30 @@ grouped_commands = {
        '/ip route/add dst-address=0.0.0.0/0 gateway=10.80.80.1 routing-table=isp1-failover distance=4 comment="== gateway table isp1-failover"',
 
       #ospf
-       '/routing/ospf/instance/add name=main-instance originate-default=always router-id=1.1.1.1 out-filter-chain=out.ospf-main',
+       '/routing/ospf/instance/add name=main-instance originate-default=always router-id=1.1.1.1 out-filter-chain=out.ospf-main redistribute=connected,bgp',
        '/routing/ospf/area/add area-id=0.0.0.0 instance=main-instance name=main-area',
        '/routing/ospf/interface-template/add area=main-area cost=20 networks=10.1.1.0/30 interfaces=eth4.to-jakarta-r1 type=ptp comment="ospf.main-to-jakarta-r1"',
        '/routing/ospf/interface-template/add area=main-area cost=30 networks=10.2.2.0/30 interfaces=eth5.to-jakarta-r2 type=ptp comment="ospf.main-to-jakarta-r2"',
+       #ebgp
+       '/routing/bgp/instance/add as=65100 name=main-instance router-id=1.1.1.1',
+       '/routing/bgp/connection/add as=65100 name=bgp.jakarta-to-bandung local.role=ebgp local.address=172.20.20.1 remote.address=172.20.20.2 remote.as=65200 output.redistribute=connected,ospf instance=main-instance output.filter-chain=out.ebgp comment="== bgp.jakarta-to-bandung"',
+       '/routing/bgp/connection/add as=65100 name=bgp.jakarta-to-surabaya local.role=ebgp local.address=172.20.20.1 remote.address=172.20.20.3 remote.as=65300 output.redistribute=connected,ospf instance=main-instance output.filter-chain=out.ebgp comment="== bgp.jakarta-to-surabaya"',
+       '/routing/bgp/connection/add as=65100 name=bgp.jakarta-to-aceh local.role=ebgp local.address=172.20.20.1 remote.address=172.20.20.4 remote.as=65400 output.redistribute=connected,ospf instance=main-instance output.filter-chain=out.ebgp comment="== bgp.jakarta-to-aceh"',
+
+
    ]
 }
 
 try:
     print("Menghubungkan ke router menggunakan user 'admin'...")
     conn = ConnectHandler(**router)
-    
+
     # Menjalankan grup konfigurasi awal
     for category, commands in grouped_commands.items():
         print("\n" + "=" * 50)
         print(f" SEGMENT: {category} ".center(50, "-"))
         print("=" * 50)
-        
+
         for command in commands:
             output = conn.send_command(command)
             print(f"\n[Command Executed]: {command}")
@@ -126,10 +164,10 @@ try:
     print("\n" + "=" * 50)
     print(" SEGMENT: DEACTIVATING DEFAULT ADMIN ".center(50, "-"))
     print("=" * 50)
-    
+
     disable_command = "/user disable admin"
     print(f"Menjalankan perintah: {disable_command}")
-    
+
     try:
         # Mengirimkan perintah disable. Sesi SSH akan putus di titik ini.
         conn.send_command(disable_command)

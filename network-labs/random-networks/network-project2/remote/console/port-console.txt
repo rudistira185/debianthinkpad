@@ -1,2 +1,3 @@
 #jakarta
 core-jakarta: localhost 5003
+jakarta-r1: localhost 5007

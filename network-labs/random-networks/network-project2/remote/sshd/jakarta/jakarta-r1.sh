@@ -1,8 +1,8 @@
 #!/bin/bash
 
 KEY="jakarta-keys/id_ed25519"
-USER="core-jakarta"
-PORT="2110"
+USER="jakarta-r1"
+PORT="2120"
 
 IPS=(
     "10.10.10.10"
