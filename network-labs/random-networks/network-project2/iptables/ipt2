@@ -1,0 +1,208 @@
+#!/usr/bin/env bash
+
+# ============================================================
+# IPT v2 - Colorized & Automated iptables viewer
+# ============================================================
+
+# ============================================================
+# COLORS
+# ============================================================
+RESET='\033[0m'
+GRAY='\033[90m'
+WHITE='\033[97m'
+CYAN='\033[36m'
+GREEN='\033[32m'
+RED='\033[31m'
+YELLOW='\033[33m'
+BLUE='\033[34m'
+MAGENTA='\033[35m'
+ORANGE='\033[38;5;208m'
+
+# ============================================================
+# DEFAULTS
+# ============================================================
+TABLE="filter"
+CHAIN=""
+SEARCH=""
+LIST_MODE=0
+
+# ============================================================
+# ARGUMENT PARSING
+# ============================================================
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            echo -e "${CYAN}Usage:${RESET}"
+            echo "  ipt                          Semua chain filter"
+            echo "  ipt INPUT                    Chain INPUT"
+            echo "  ipt nat                      Semua chain NAT"
+            echo "  ipt mangle PREROUTING        mangle PREROUTING"
+            echo
+            echo -e "${CYAN}Options:${RESET}"
+            echo "  --list                       List chain yang tersedia"
+            echo "  -s, --search <keyword>       Cari IP/Port/Keyword tertentu"
+            echo
+            exit 0
+            ;;
+        --list)
+            LIST_MODE=1
+            shift
+            ;;
+        -s|--search)
+            SEARCH="$2"
+            shift 2
+            ;;
+        filter|nat|mangle|raw|security)
+            TABLE="$1"
+            shift
+            ;;
+        *)
+            if [[ -z "$CHAIN" ]]; then
+                CHAIN="$1"
+            else
+                echo -e "${RED}Error:${RESET} Argumen tidak dikenal: $1"
+                exit 1
+            fi
+            shift
+            ;;
+    esac
+done
+
+# ============================================================
+# CHECK TABLE
+# ============================================================
+if ! sudo iptables -t "$TABLE" -L >/dev/null 2>&1; then
+    echo -e "${RED}Error:${RESET} table '$TABLE' tidak tersedia."
+    exit 1
+fi
+
+# ============================================================
+# LIST CHAINS
+# ============================================================
+if [[ $LIST_MODE -eq 1 ]]; then
+    echo -e "${CYAN}Table:${RESET} $TABLE"
+    echo
+    sudo iptables -t "$TABLE" -L 2>/dev/null | awk '/^Chain / {print $2}'
+    exit 0
+fi
+
+# ============================================================
+# FUNCTION: SHOW CHAIN
+# ============================================================
+show_chain() {
+    local chain="$1"
+
+    sudo iptables \
+        -t "$TABLE" \
+        -L "$chain" \
+        -n \
+        -v \
+        --line-numbers \
+        2>/dev/null |
+    awk \
+        -v SEARCH="$SEARCH" \
+        -v RESET="$RESET" \
+        -v GRAY="$GRAY" \
+        -v WHITE="$WHITE" \
+        -v CYAN="$CYAN" \
+        -v GREEN="$GREEN" \
+        -v RED="$RED" \
+        -v YELLOW="$YELLOW" \
+        -v BLUE="$BLUE" \
+        -v MAGENTA="$MAGENTA" \
+        -v ORANGE="$ORANGE" '
+
+    # --------------------------------------------------------
+    # Chain
+    # --------------------------------------------------------
+    /^Chain / {
+        print CYAN $0 RESET
+        next
+    }
+
+    # --------------------------------------------------------
+    # Header
+    # --------------------------------------------------------
+    /^num[[:space:]]+pkts/ {
+        print YELLOW $0 RESET
+        next
+    }
+
+    # --------------------------------------------------------
+    # Rules
+    # --------------------------------------------------------
+    /^[0-9]+[[:space:]]/ {
+        
+        # Fitur Filter/Pencarian
+        if (SEARCH != "" && $0 !~ SEARCH) {
+            next
+        }
+
+        # Number
+        printf "%s%-4s%s ", GRAY, $1, RESET
+        # Packets
+        printf "%s%-9s%s ", WHITE, $2, RESET
+        # Bytes
+        printf "%s%-9s%s ", WHITE, $3, RESET
+
+        # Target
+        if ($4 == "ACCEPT")
+            printf "%s%-14s%s ", GREEN, $4, RESET
+        else if ($4 == "DROP" || $4 == "REJECT")
+            printf "%s%-14s%s ", RED, $4, RESET
+        else if ($4 ~ /DNAT|SNAT|MASQUERADE|REDIRECT/)
+            printf "%s%-14s%s ", ORANGE, $4, RESET
+        else
+            printf "%s%-14s%s ", YELLOW, $4, RESET
+
+        # Protocol
+        if ($5 == "tcp" || $5 == "udp")
+            printf "%s%-7s%s ", MAGENTA, $5, RESET
+        else
+            printf "%s%-7s%s ", ORANGE, $5, RESET
+
+        # OPT, INPUT, OUTPUT
+        printf "%s%-5s%s ", GRAY, $6, RESET
+        printf "%s%-18s%s ", BLUE, $7, RESET
+        printf "%s%-18s%s ", BLUE, $8, RESET
+
+        # SOURCE & DESTINATION
+        printf "%s%-18s%s ", GREEN, $9, RESET
+        printf "%s%-18s%s", MAGENTA, $10, RESET
+
+        # Extra
+        for (i = 11; i <= NF; i++)
+            printf " %s%s%s", ORANGE, $i, RESET
+
+        printf "\n"
+        next
+    }
+
+    # --------------------------------------------------------
+    # Other
+    # --------------------------------------------------------
+    {
+        if ($0 !~ /^Chain / && $0 !~ /^num[[:space:]]+pkts/ && $0 !~ /^[0-9]+[[:space:]]/)
+            print $0
+    }
+    '
+    echo
+}
+
+# ============================================================
+# EXECUTION
+# ============================================================
+if [[ -n "$CHAIN" ]]; then
+    if ! sudo iptables -t "$TABLE" -L "$CHAIN" -n >/dev/null 2>&1; then
+        echo -e "${RED}Error:${RESET} chain '$CHAIN' tidak ditemukan di table '$TABLE'."
+        echo -e "\n${CYAN}Chain tersedia:${RESET}"
+        sudo iptables -t "$TABLE" -L 2>/dev/null | awk '/^Chain / {print "  " $2}'
+        exit 1
+    fi
+    show_chain "$CHAIN"
+else
+    CHAINS=$(sudo iptables -t "$TABLE" -L 2>/dev/null | awk '/^Chain / {print $2}')
+    for chain in $CHAINS; do
+        show_chain "$chain"
+    done
+fi
