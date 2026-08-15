@@ -30,3 +30,6 @@ network-labs/random-networks/network-project/monitoring/librenms/docker-master/e
 
 #netmiko
 network-labs/random-networks/network-project2/netmiko/.env*
+
+#rsyslog-network-project2
+network-labs/random-networks/network-project2/docker/rsyslog-server/logs/
