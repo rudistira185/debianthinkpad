@@ -4,3 +4,7 @@ core-jakarta : 10.10.10.10 or
 jakarta-r1   : use loopback 1.2.2.2 port 8120
 jakarta-r2   : use loopback 1.3.3.3 port 8130
 jakarta-r3   : use loopback 1.4.4.4 port 8140
+
+#bandung
+core-bandung : 20.20.20.20 or
+               20.80.80.20  port 8210

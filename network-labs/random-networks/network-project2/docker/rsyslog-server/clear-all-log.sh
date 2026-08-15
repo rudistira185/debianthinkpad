@@ -1,0 +1,1 @@
+find ./logs/ -type f -name "*.log" -exec truncate -s 0 {} +
