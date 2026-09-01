@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  zabbix-db:
+    image: postgres:15-alpine
+    network_mode: host
+    environment:
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix_pass
+      - POSTGRES_DB=zabbix
+    volumes:
+      - ./zabbix-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql:latest
+    network_mode: host
+    environment:
+      - DB_SERVER_HOST=127.0.0.1
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix_pass
+      - POSTGRES_DB=zabbix
+    restart: unless-stopped
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-pgsql:latest
+    network_mode: host
+    environment:
+      - DB_SERVER_HOST=127.0.0.1
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix_pass
+      - POSTGRES_DB=zabbix
+      - ZBX_SERVER_HOST=127.0.0.1
+      - PHP_TZ=Asia/Jakarta
+    restart: unless-stopped
