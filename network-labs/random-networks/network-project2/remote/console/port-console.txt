@@ -3,3 +3,9 @@ core-jakarta: localhost 5003
 jakarta-r1: localhost 5007
 jakarta-r2: localhost 5011
 jakarta-r3: localhost 5014
+mikrotik-trunkJ1 : 5028
+
+
+#bandung
+core-bandung : localhost 5017
+bandung-r1   : localhost 5025

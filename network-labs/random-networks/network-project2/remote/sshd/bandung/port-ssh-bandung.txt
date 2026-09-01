@@ -1,1 +1,2 @@
 core-bandung : 20.20.20.20 port 2210
+bandung-r1   : 20.1.1.2  port 2220

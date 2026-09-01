@@ -8,3 +8,4 @@ jakarta-r3   : use loopback 1.4.4.4 port 8140
 #bandung
 core-bandung : 20.20.20.20 or
                20.80.80.20  port 8210
+bandung-r1   : 20.1.1.2   port 8220
