@@ -33,3 +33,6 @@ network-labs/random-networks/network-project2/netmiko/.env*
 
 #rsyslog-network-project2
 network-labs/random-networks/network-project2/docker/rsyslog-server/logs/
+
+#zabbix
+network-labs/random-networks/network-project2/docker/zabbix/zabbix-data
