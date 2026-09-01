@@ -1,2 +1,4 @@
 core-bandung : 20.20.20.20 port 2210
 bandung-r1   : 20.1.1.2  port 2220
+bandung-r2   : use lo 2.4.4.4 port 2230
+bandung-r3   : use lo 2.5.5.5 port 2240
