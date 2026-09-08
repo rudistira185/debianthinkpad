@@ -11,3 +11,9 @@ core-bandung : localhost 5017
 bandung-r1   : localhost 5025
 bandung-r2   : localhost 5036
 bandung-r3   : localhost 5039
+
+
+#surabaya
+core-surabaya : localhost 5048
+surabaya-r1   : localhost 5051
+surabaya-r2   : localhost 5054
