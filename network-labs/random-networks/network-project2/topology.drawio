@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="M5b1dx2r68ZZbaG0b8IR">
-    <mxGraphModel dx="518" dy="2231" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="743" dy="1985" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -813,11 +813,11 @@
         <mxCell id="FffEJKsZs-oO759jor4z-57" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#FF6666);fontStyle=1;fontColor=light-dark(#000000,#000000);fontSize=14;" value="Use PCQ Tree" vertex="1">
           <mxGeometry height="40" width="131.5" x="1299.25" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="FffEJKsZs-oO759jor4z-60" parent="1" style="strokeColor=#36393d;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=light-dark(#FFFFFF,#CC00CC);strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.switches.workgroup_switch;fontStyle=1;fontSize=11;" value="swB2-vxlan10&lt;div&gt;net192.168.100.0/24&lt;/div&gt;" vertex="1">
+        <mxCell id="FffEJKsZs-oO759jor4z-60" parent="1" style="strokeColor=#36393d;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=light-dark(#FFFFFF,#CC00CC);strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.switches.workgroup_switch;fontStyle=1;fontSize=11;" value="swB2-vxlan10-bandungr3&lt;div&gt;net192.168.100.0/24&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="62" x="1460" y="145" as="geometry" />
         </mxCell>
         <mxCell id="FffEJKsZs-oO759jor4z-61" parent="1" style="strokeColor=#36393d;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=light-dark(#FFFFFF,#CC00CC);strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.switches.workgroup_switch;fontStyle=1;fontSize=11;" value="swB2-vxlan10&lt;div&gt;net192.168.100.0/24&lt;/div&gt;" vertex="1">
-          <mxGeometry height="30" width="62" x="1550" y="224" as="geometry" />
+          <mxGeometry height="30" width="62" x="1550" y="220" as="geometry" />
         </mxCell>
         <mxCell id="FffEJKsZs-oO759jor4z-62" parent="1" style="strokeColor=#36393d;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=light-dark(#FFFFFF,#CC00CC);strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.switches.workgroup_switch;fontStyle=1;fontSize=11;" value="swB2-vxlan10&lt;div&gt;net192.168.100.0/24&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="62" x="1600" y="100" as="geometry" />
