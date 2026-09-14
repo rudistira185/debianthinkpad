@@ -1,0 +1,13 @@
+FROM gns3/ipterm:latest
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ppp \
+        pppoe* \
+        kmod \
+        && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /etc/ppp/peers /run/ppp
+
+CMD ["/bin/bash"]

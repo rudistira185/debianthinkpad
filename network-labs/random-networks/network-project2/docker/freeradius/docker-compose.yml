@@ -1,0 +1,35 @@
+services:
+  radius:
+    image: manojsingh0706/daloradius:latest
+    container_name: daloradius
+    restart: unless-stopped
+    depends_on:
+      - radius-mysql
+
+    ports:
+      - "1812:1812/udp"
+      - "1813:1813/udp"
+      - "8082:80"
+
+    environment:
+      MYSQL_HOST: radius-mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: radius
+      MYSQL_USER: radius
+      MYSQL_PASSWORD: dalodbpass
+      TZ: Asia/Jakarta
+
+  radius-mysql:
+    image: mariadb:10.3
+    container_name: radius-mysql
+    restart: unless-stopped
+
+    environment:
+      MYSQL_DATABASE: radius
+      MYSQL_USER: radius
+      MYSQL_PASSWORD: dalodbpass
+      MYSQL_ROOT_PASSWORD: dalorootpass
+      TZ: Asia/Jakarta
+
+    volumes:
+      - ./radius-mysql:/var/lib/mysql
