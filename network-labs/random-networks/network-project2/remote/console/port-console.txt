@@ -17,3 +17,8 @@ bandung-r3   : localhost 5039
 core-surabaya : localhost 5048
 surabaya-r1   : localhost 5051
 surabaya-r2   : localhost 5054
+
+#aceh
+core-aceh     : localhost 5077
+aceh-r1       : localhost 5083
+aceh-r2       : localhost 5086
