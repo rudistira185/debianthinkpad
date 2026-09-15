@@ -18,3 +18,9 @@ core-surabaya : 30.30.30.1 or
                 20.80.80.1 port 8310
 surabaya-r1   : use loopback 3.4.4.4 port 8320
 surabaya-r2   : use loopback 3.5.5.5 port 8330
+
+
+#aceh
+core-aceh     : 40.40.40.40 port 8410
+aceh-r1       : use loopback 4.5.5.5 port 8420
+aceh-r2       : use loopback 4.6.6.6 port 8430
