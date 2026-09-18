@@ -24,3 +24,5 @@ surabaya-r2   : use loopback 3.5.5.5 port 8330
 core-aceh     : 40.40.40.40 port 8410
 aceh-r1       : use loopback 4.5.5.5 port 8420
 aceh-r2       : use loopback 4.6.6.6 port 8430
+virtual-public-isp1 : use loopback 4.7.7.7 port 8440
+l2tp-server1   : use loopback 4.8.8.8 port 8450
