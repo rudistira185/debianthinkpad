@@ -1,1 +1,1 @@
-echo 100 | sudo tee /sys/class/backlight/intel_backlight/brightness
+echo 200 | sudo tee /sys/class/backlight/intel_backlight/brightness
