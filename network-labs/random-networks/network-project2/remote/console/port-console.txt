@@ -4,7 +4,8 @@ jakarta-r1: localhost 5007
 jakarta-r2: localhost 5011
 jakarta-r3: localhost 5014
 mikrotik-trunkJ1 : 5028
-
+router-cake  : localhost 5116
+router-nocake : localhost 5119
 
 #bandung
 core-bandung : localhost 5017
@@ -22,3 +23,8 @@ surabaya-r2   : localhost 5054
 core-aceh     : localhost 5077
 aceh-r1       : localhost 5083
 aceh-r2       : localhost 5086
+virtual-public-isp1 : localhost 5101
+l2tp-server1  : localhost 5104
+l2tp-client1  : localhost 5110
+wireguard1    : loaclhost 5107
+wireguard1    : localhost 5113

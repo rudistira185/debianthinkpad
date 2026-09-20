@@ -1,3 +1,7 @@
 core-surabaya : 40.40.40.40 port 2410
 aceh-r1       : use loopback 4.5.5.5 port 2420
 aceh-r2       : use loopback 4.6.6.6 port 2430
+
+virtual-public-isp1 : use loopback 4.7.7.7 port 2440
+l2tp-server1   : use loopback 4.8.8.8 port 2450
+wireguard1     : use loopback 4.9.9.9 port 2460
