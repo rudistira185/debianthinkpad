@@ -1,0 +1,3 @@
+r1-netmiko : 50.50.50.10 port 2510 
+r2-netmiko : 50.50.50.20 port 2520
+r3-netmiko : 50.50.50.30 port 2530
