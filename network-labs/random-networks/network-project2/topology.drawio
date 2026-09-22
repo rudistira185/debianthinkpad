@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="M5b1dx2r68ZZbaG0b8IR">
-    <mxGraphModel dx="4731" dy="2829" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="3975" dy="2458" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1679,7 +1679,7 @@
         <mxCell id="wydVjO9CiJQQqyqweytJ-8" parent="1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=light-dark(#036897,#FF9999);strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=13;points=[[0,0.28,0,0,0],[0,0.5,0,0,0],[0.12,0.1,0,0,0],[0.12,0.9,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.88,0.1,0,0,0],[0.88,0.9,0,0,0],[0.96,0.28,0,0,0],[1,0.5,0,0,0]];" value="r1-netmiko&lt;div&gt;50.50.50.10/24&lt;/div&gt;&lt;div&gt;lo 5.5.5.5&lt;/div&gt;" vertex="1">
           <mxGeometry height="53" width="78" x="1792" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="wydVjO9CiJQQqyqweytJ-9" parent="1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=light-dark(#036897,#FF9999);strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=13;points=[[0,0.28,0,0,0],[0,0.5,0,0,0],[0.12,0.1,0,0,0],[0.12,0.9,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.88,0.1,0,0,0],[0.88,0.9,0,0,0],[0.96,0.28,0,0,0],[1,0.5,0,0,0]];" value="r2-onetmiko&lt;br&gt;&lt;div&gt;50.50.50.20/24&lt;/div&gt;&lt;div&gt;lo 5.6.6.6&lt;/div&gt;" vertex="1">
+        <mxCell id="wydVjO9CiJQQqyqweytJ-9" parent="1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=light-dark(#036897,#FF9999);strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=13;points=[[0,0.28,0,0,0],[0,0.5,0,0,0],[0.12,0.1,0,0,0],[0.12,0.9,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.88,0.1,0,0,0],[0.88,0.9,0,0,0],[0.96,0.28,0,0,0],[1,0.5,0,0,0]];" value="r2-netmiko&lt;br&gt;&lt;div&gt;50.50.50.20/24&lt;/div&gt;&lt;div&gt;lo 5.6.6.6&lt;/div&gt;" vertex="1">
           <mxGeometry height="53" width="78" x="1982" y="217" as="geometry" />
         </mxCell>
         <mxCell id="wydVjO9CiJQQqyqweytJ-10" parent="1" style="strokeColor=#ffffff;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=light-dark(#036897,#FF9999);strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.cisco.routers.router;fontStyle=1;fontSize=13;points=[[0,0.28,0,0,0],[0,0.5,0,0,0],[0.12,0.1,0,0,0],[0.12,0.9,0,0,0],[0.5,0,0,0,0],[0.5,1,0,0,0],[0.88,0.1,0,0,0],[0.88,0.9,0,0,0],[0.96,0.28,0,0,0],[1,0.5,0,0,0]];" value="r3-netmiko&lt;br&gt;&lt;div&gt;50.50.50.30/24&lt;/div&gt;&lt;div&gt;lo 5.7.7.7&lt;/div&gt;" vertex="1">
@@ -1765,6 +1765,15 @@
           <mxGeometry relative="1" x="0.5736" y="-3" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="EvbbDHdnR4Zpev7WcFQN-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFFFF,#FFB366);fontStyle=1;fontColor=light-dark(#000000,#000000);fontSize=18;" value="Routing OSPF&lt;div&gt;area0/main&lt;/div&gt;" vertex="1">
+          <mxGeometry height="47" width="191.5" x="2090" y="65" as="geometry" />
+        </mxCell>
+        <mxCell id="EvbbDHdnR4Zpev7WcFQN-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontColor=light-dark(#000000,#99FFFF);" value="cost 20" vertex="1">
+          <mxGeometry height="30" width="60" x="1889" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="EvbbDHdnR4Zpev7WcFQN-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontColor=light-dark(#000000,#99FFFF);" value="cost 20" vertex="1">
+          <mxGeometry height="30" width="60" x="2080" y="270" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
