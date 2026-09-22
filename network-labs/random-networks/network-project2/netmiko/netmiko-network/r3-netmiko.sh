@@ -4,8 +4,8 @@ from netmiko.exceptions import NetmikoTimeoutException, NetmikoAuthenticationExc
 # 1. Detail Koneksi Pertama Kali (Menggunakan User Admin)
 router = {
     "device_type": "mikrotik_routeros",
-    "host": "50.50.50.10",
-    "port": 2510,
+    "host": "50.50.50.30",
+    "port": 2530,
     "username": "admin",          # Menggunakan user admin bawaan
     "password": "admin",  # Ganti dengan password admin saat ini
 }
@@ -15,17 +15,17 @@ grouped_commands = {
     "SET INTERFACE": [
         "/interface set ether1 name=eth1.to-sw-netmiko",
         "/interface set ether2 name=eth2.to-r2-netmiko",
-    ],
+        ],
 
     "SET SERVICES": [
-       '/ip service/set ssh port=2510',
-       '/ip service/set winbox port=8510',
+       '/ip service/set ssh port=2530',
+       '/ip service/set winbox port=8530',
     ],
 
     "SET IPADDRESS": [
-        "/ip address add address=50.50.50.10/24 interface=eth1.to-sw-netmiko",
-        "/ip address add address=50.10.10.1/30 interface=eth2.to-r2-netmiko",
-        "/ip address add address=5.5.5.5/32 interface=lo",
+        "/ip address add address=50.50.50.30/24 interface=eth1.to-sw-netmiko",
+        "/ip address add address=50.20.20.2/30 interface=eth2.to-r2-netmiko",
+        "/ip address add address=5.7.7.7/32 interface=lo",
 
         ],
 
@@ -35,12 +35,12 @@ grouped_commands = {
 
         #address-list
         "/ip firewall address-list add list=input-remote address=50.50.50.1",
-        "/ip firewall address-list add list=input-ospf address=50.10.10.0/30",
+        "/ip firewall address-list add list=input-ospf address=50.20.20.0/30",
         #filter / input
         '/ip firewall/filter/add chain=input action=accept connection-state=established,related comment="== INPUT CONNTRACK =="',
         '/ip firewall/filter/add chain=input action=drop connection-state=invalid',
         '/ip firewall/filter/add chain=input action=accept protocol=icmp comment="== INPUT ICMP =="',
-        '/ip firewall/filter/add chain=input action=accept protocol=tcp dst-port=2510,8510 src-address-list=input-remote comment="== INPUT REMOTE =="',
+        '/ip firewall/filter/add chain=input action=accept protocol=tcp dst-port=2530,8530 src-address-list=input-remote comment="== INPUT REMOTE =="',
         #rip
         '/ip firewall/filter/add chain=input action=accept protocol=ospf src-address-list=input-ospf comment="== INPUT OSPF =="',
         #input drop all
@@ -52,7 +52,7 @@ grouped_commands = {
         ],
 
    "CREATE USER": [
-           "/user add name=r1-netmiko group=full password=r1-netmiko",
+           "/user add name=r3-netmiko group=full password=r3-netmiko",
         ],
 
     "SYSTEM": [
@@ -64,7 +64,7 @@ grouped_commands = {
         #sshd
         # SSH public key
         '/file/add name=ssh.pub type=file contents="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDLETdwXf/SiocIm/3YES1sIS3yrC17q/2eiiZbl1vqk carlos@carlos"',
-        '/user/ssh-keys/import public-key-file=ssh.pub user=r1-netmiko',
+        '/user/ssh-keys/import public-key-file=ssh.pub user=r3-netmiko',
     ],
 
    "Routing": [
@@ -76,9 +76,9 @@ grouped_commands = {
        #instance
         '/routing/ospf/instance/add name=main-instance out-filter-chain=out.ospf-main redistribute=connected',
        #area
-       '/routing/ospf/area/add name=main-area area-id=0.0.0.0 instance=main-instance',
+         '/routing/ospf/area/add name=main-area area-id=0.0.0.0 instance=main-instance',
        # interface-template
-        '/routing/ospf/interface-template/add area=main-area cost=20 networks=50.10.10.0/30 interfaces=eth2.to-r2-netmiko type=ptp comment="ospf.main-to-r2-netmiko"',
+        '/routing/ospf/interface-template/add area=main-area cost=20 networks=50.20.20.0/30 interfaces=eth2.to-r2-netmiko type=ptp comment="ospf.main-to-r2-netmiko"',
         #static-route
         '/ip route add dst-address=0.0.0.0/0 gateway=50.50.50.1 distance=1'
    ]
