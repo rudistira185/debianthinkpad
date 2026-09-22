@@ -28,3 +28,8 @@ l2tp-server1  : localhost 5104
 l2tp-client1  : localhost 5110
 wireguard1    : loaclhost 5107
 wireguard1    : localhost 5113
+
+
+#SDN-NETWORK
+sw-openflow  : localhost 5129
+
